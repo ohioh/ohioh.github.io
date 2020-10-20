@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
+	<% for (var chunk in htmlWebpackPlugin.files.css) { %>
+	<link rel="preload" href="<%= htmlWebpackPlugin.files.css[chunk] %>"  as="style">
+	<% } %>
+	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+	<link rel="preload" href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" as="script">
+	<% } %>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+	<title>OHIOH-APP Features</title>
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+	<link rel="manifest" href="_manifest.json" data-pwa-version="1.0.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/OHIOHicons/apple-icon-180x180.png">
+	<% preact.headEnd %>
+</head>
+
+<body class="theme-light" data-highlight="OHIOH">
+
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+
+<div id="page">
+
+    <!-- header and footer bar go here-->
+    <div class="header header-fixed header-auto-show header-logo-app">
+        <a href="index.html" class="header-title">OHIOH-Research-APP</a>
+        <a href="#" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-2 show-on-theme-dark"><i class="fas fa-sun"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-2 show-on-theme-light"><i class="fas fa-moon"></i></a>
+        <a href="#" data-menu="menu-highlights" class="header-icon header-icon-3"><i class="fas fa-brush"></i></a>
+    </div>
+    <div id="footer-bar" class="footer-bar-5">
+        <a href="index-features.html" class="active-nav"><i data-feather="heart" data-feather-line="1" data-feather-size="21" data-feather-color="red2-dark" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
+        <a href="index-media.html"><i data-feather="image" data-feather-line="1" data-feather-size="21" data-feather-color="green1-dark" data-feather-bg="green1-fade-light"></i><span>Media</span></a>
+        <a href="index.html"><i data-feather="home" data-feather-line="1" data-feather-size="21" data-feather-color="blue2-dark" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
+        <a href="index-QR.html"><i data-feather="file" data-feather-line="1" data-feather-size="21" data-feather-color="brown1-dark" data-feather-bg="brown1-fade-light"></i><span>QR-Infos</span></a>
+        <a href="index-settings.html"><i data-feather="settings" data-feather-line="1" data-feather-size="21" data-feather-color="gray2-dark" data-feather-bg="gray2-fade-light"></i><span>Settings</span></a>
+    </div>
+
+    <div class="page-content">
+
+        <div class="page-title page-title-small">
+            <h2><a href="#" data-back-button><i class="fa fa-arrow-left"></i></a>Your features:</h2>
+            <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img" data-src="images/avatars/11s.png"></a>
+        </div>
+        <div class="card header-card shape-rounded" data-card-height="150">
+            <div class="card-overlay bg-highlight opacity-95"></div>
+            <div class="card-overlay dark-mode-tint"></div>
+            <div class="card-bg preload-img" data-src="images/pictures/11.png"></div>
+        </div>
+
+        <div class="card card-style">
+            <div class="content">
+                We created this APP for you. We try togive you allthe features you have responded to us. You need more? Send us  an Email or use GIThub.
+            </div>
+        </div>
+
+        <div class="card card-style">
+            <div class="content mt-0 mb-0">
+                <div class="list-group list-custom-large">
+                    <a href="component-ad-boxes.html">
+                        <i class="fa fa-dollar-sign font-20 color-green1-dark"></i>
+                        <span>Moving Content</span>
+                        <strong>More interesting...</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    <a href="component-ad-scroll-show.html">
+                        <i class="fa fa-pound-sign font-20 color-teal-dark"></i>
+                        <span>Regular up t odate</span>
+                        <strong>newest reserach informations in  the APP</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    <a href="component-ad-timed.html">
+                        <i class="far fa-clock font-20 color-brown1-dark"></i>
+                        <span>For each device</span>
+                        <strong>Easier then a "Store" download</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    <a href="component-add-to-home.html">
+                        <i class="fa fa-mobile-alt font-20 color-gray2-dark"></i>
+                        <span>Add To Home</span>
+                        <strong>from browser to you device</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-accordions.html">
+                        <i class="fa fa-server font-16 color-blue2-dark"></i>
+                        <span>Security</span>
+                        <strong>Great for FAQ's and Github Wiki Content</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-action-sheets.html">
+                        <i class="fa fa-bookmark font-16 color-red2-dark"></i>
+                        <span>German Standards</span>
+                        <strong>Fullfilling the security and privacy Laws</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-action-modals.html">
+                        <i class="fa fa-square font-16 color-green1-dark"></i>
+                        <span>Action Modals</span>
+                        <strong>Interact with Users and Show Messages</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-auto-dark.html">
+                        <i class="fa fa-lightbulb font-16 color-yellow1-dark"></i>
+                        <span>Auto Dark Mode</span>
+                        <strong>Detect and Auto Activate Dark Mode</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-buttons.html">
+                        <i class="fa fa-hand-pointer font-16 color-green2-dark"></i>
+                        <span>Buttons</span>
+                        <strong>lightweight design</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-back-to-top.html">
+                        <i class="fa fa-arrow-up font-16 color-magenta2-dark"></i>
+                        <span>Back to Top</span>
+                        <strong>easy handling</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-charts.html">
+                        <i class="fa fa-chart-pie font-16 color-gray2-dark"></i>
+                        <span>Charts</span>
+                        <strong>Powered by charts.js for Power and Features</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-chips.html">
+                        <i class="fa fa-sun font-16 color-yellow1-dark"></i>
+                        <span>Notification</span>
+                        <strong>less but important notifications </strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-cookie-box.html">
+                        <i class="fa fa-check font-16 color-green1-dark"></i>
+                        <span>Infection-Risk-Alert</span>
+                        <strong>Alerting in case of Covid-19 Risk</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-card-captions.html">
+                        <i class="fa fa-star font-16 color-magenta2-dark"></i>
+                        <span>Card Captions</span>
+                        <strong>The Most Advanced and Easy to Use Captions</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-card-content.html">
+                        <i class="fa fa-square font-16 color-teal-dark"></i>
+                        <span>QR-Technology</span>
+                        <strong>Less Crowd.Scan and take needed Information with you. </strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="component-card-gradient.html">
+                        <i class="far fa-square font-16 color-yellow1-dark"></i>
+                        <span>GPS</span>
+                        <strong>Only on-campus APP</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- footer and footer card-->
+        <div class="footer" data-menu-load="menu-footer.html"></div>
+    </div>
+    <!-- end of page content-->
+
+
+    <div id="menu-share"
+         class="menu menu-box-bottom menu-box-detached rounded-m"
+         data-menu-load="menu-share.html"
+         data-menu-height="420"
+         data-menu-effect="menu-over">
+    </div>
+
+    <div id="menu-highlights"
+         class="menu menu-box-bottom menu-box-detached rounded-m"
+         data-menu-load="menu-colors.html"
+         data-menu-height="510"
+         data-menu-effect="menu-over">
+    </div>
+
+    <div id="menu-main"
+         class="menu menu-box-right menu-box-detached rounded-m"
+         data-menu-width="260"
+         data-menu-load="menu-main.html"
+         data-menu-active="nav-features"
+         data-menu-effect="menu-over">
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<% preact.bodyEnd %>
+</body>
+</html>
