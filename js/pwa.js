@@ -18,7 +18,7 @@ if ('serviceWorker' in navigator) {
 $(function () {
     'use strict'
 
-    var pwaVersion = '1.0.0'; //must be identical to _manifest.json version. If not it will create update window loop
+    var pwaVersion = '1.0.1'; //must be identical to _manifest.json version. If not it will create update window loop
     var pwaCookie = true; // if set to false, the PWA prompt will appear even if the user selects "maybe later"
     var pwaNoCache = false; // always keep the cache clear to serve the freshest possible content
 
