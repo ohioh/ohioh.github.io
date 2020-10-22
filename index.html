@@ -2,16 +2,10 @@
 <html lang="de">
 
 <head>
-	<% for (var chunk in htmlWebpackPlugin.files.css) { %>
-	<link rel="preload" href="<%= htmlWebpackPlugin.files.css[chunk] %>"  as="style">
-	<% } %>
-	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-	<link rel="preload" href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" as="script">
-	<% } %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="OHIOH-Research">
@@ -26,6 +20,10 @@
 	<meta name="msapplication-TileImage" content="/icon/ms-touch-icon-144x144-precomposed.png">
 	<meta name="msapplication-TileColor" content="#F2F2F2">
     <link rel="manifest" href="_manifest.json" data-pwa-version="1.0.0">
+    <link rel="preload" as="style" href="js/jquery.js">
+    <link rel="preload" as="style" href="js/bootstrap.min.js">
+    <link rel="preload" as="style" href="js/custom.js">
+    <link rel="preload" as="style" href="js/charts.js">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 	<% preact.headEnd %>
 </head>
@@ -53,7 +51,7 @@
         <div id="footer-bar" class="footer-bar-5">
             <a href="index-features.html"><i data-feather="heart" data-feather-line="1" data-feather-size="21"
                     data-feather-color="ohioh" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
-            <a href="index-media.html"><i data-feather="image" data-feather-line="1" data-feather-size="21"
+            <a href="index-research.html"><i data-feather="image" data-feather-line="1" data-feather-size="21"
                     data-feather-color="ohioh" data-feather-bg="green1-fade-light"></i><span>Research</span></a>
             <a href="index.html" class="active-nav"><i data-feather="home" data-feather-line="1" data-feather-size="21"
                     data-feather-color="ohioh" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
@@ -70,10 +68,11 @@
                 <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
                     data-src="images/avatars/11l.png"></a>
             </div>
+
             <div class="card header-card shape-rounded" data-card-height="210">
                 <div class="card-overlay bg-highlight opacity-95"></div>
                 <div class="card-overlay dark-mode-tint"></div>
-                <div class="card-bg preload-img" data-src="images/pictures/main.png"></div>
+                <div class="card-bg preload-img" data-src="images/pictures/pic_mensa.jpg"></div>
             </div>
 
 
@@ -87,7 +86,7 @@
                         </p>
                     </div>
                     <div class="card-overlay bg-gradient-fade"></div>
-                    <div class="card-bg owl-lazy" data-src="images/pictures/main.png"></div>
+                    <div class="card-bg owl-lazy" data-src="images/pictures/pic_sign.jpg"></div>
                 </div>
                 <div class="card rounded-l shadow-l" data-card-height="320">
                     <div class="card-bottom">
@@ -97,7 +96,7 @@
                         </p>
                     </div>
                     <div class="card-overlay bg-gradient-fade"></div>
-                    <div class="card-bg owl-lazy" data-src="images/pictures/BannerOne.png"></div>
+                    <div class="card-bg owl-lazy" data-src="images/pictures/pic_entry.jpg"></div>
                 </div>
                 <div class="card rounded-l shadow-l" data-card-height="320">
                     <div class="card-bottom">
@@ -107,7 +106,7 @@
                         </p>
                     </div>
                     <div class="card-overlay bg-gradient-fade"></div>
-                    <div class="card-bg owl-lazy" data-src="images/pictures/BannerOne.png"></div>
+                    <div class="card-bg owl-lazy" data-src="images/pictures/pic_entry.jpg"></div>
                 </div>
             </div>
 
@@ -447,10 +446,11 @@
     </div>
 
 
-    <script type="text/javascript" src="js/jquery.js"></script>
+
+    <!-- <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/charts.js"></script>
+    <script type="text/javascript" src="js/charts.js"></script> -->
 	<% preact.bodyEnd %>
 </body>
 </html>
