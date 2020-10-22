@@ -1,0 +1,456 @@
+<!DOCTYPE HTML>
+<html lang="de">
+
+<head>
+	<% for (var chunk in htmlWebpackPlugin.files.css) { %>
+	<link rel="preload" href="<%= htmlWebpackPlugin.files.css[chunk] %>"  as="style">
+	<% } %>
+	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+	<link rel="preload" href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" as="script">
+	<% } %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="OHIOH-Research">
+    <meta name="theme-color" content="#92d050">
+    <title><% preact.title %></title>
+	<link rel="icon" type="image/png" href="/assets/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/assets/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="/style/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/css/fontawesome-all.min.css">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="msapplication-TileImage" content="/icon/ms-touch-icon-144x144-precomposed.png">
+	<meta name="msapplication-TileColor" content="#F2F2F2">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="1.0.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+	<% preact.headEnd %>
+</head>
+
+<body class="theme-light" data-highlight="OHIOH">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+
+    <div id="page">
+
+        <!-- header and footer bar go here-->
+        <div class="header header-fixed header-auto-show header-logo-app">
+            <a href="index.html" class="header-title">OHIOH-Research-APP</a>
+            <a href="#" data-menu="menu-main" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
+            <a href="#" data-toggle-theme class="header-icon header-icon-2 show-on-theme-dark"><i
+                    class="fas fa-sun"></i></a>
+            <a href="#" data-toggle-theme class="header-icon header-icon-2 show-on-theme-light"><i
+                    class="fas fa-moon"></i></a>
+            <a href="#" data-menu="menu-highlights" class="header-icon header-icon-3"><i class="fas fa-brush"></i></a>
+        </div>
+        <div id="footer-bar" class="footer-bar-5">
+            <a href="index-features.html"><i data-feather="heart" data-feather-line="1" data-feather-size="21"
+                    data-feather-color="ohioh" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
+            <a href="index-media.html"><i data-feather="image" data-feather-line="1" data-feather-size="21"
+                    data-feather-color="ohioh" data-feather-bg="green1-fade-light"></i><span>Research</span></a>
+            <a href="index.html" class="active-nav"><i data-feather="home" data-feather-line="1" data-feather-size="21"
+                    data-feather-color="ohioh" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
+            <a href="index-QR.html"><i data-feather="file" data-feather-line="1" data-feather-size="21"
+                    data-feather-color="ohioh" data-feather-bg="brown1-fade-light"></i><span>QR-Infos</span></a>
+            <a href="index-settings.html"><i data-feather="settings" data-feather-line="1" data-feather-size="21"
+                    data-feather-color="ohioh" data-feather-bg="gray2-fade-light"></i><span>Settings</span></a>
+        </div>
+
+        <div class="page-content">
+
+            <div class="page-title page-title-large">
+                <h2 data-username="Enabled!" class="greeting-text"></h2>
+                <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
+                    data-src="images/avatars/11l.png"></a>
+            </div>
+            <div class="card header-card shape-rounded" data-card-height="210">
+                <div class="card-overlay bg-highlight opacity-95"></div>
+                <div class="card-overlay dark-mode-tint"></div>
+                <div class="card-bg preload-img" data-src="images/pictures/main.png"></div>
+            </div>
+
+
+            <!-- Homepage Slider-->
+            <div class="single-slider-boxed text-center owl-no-dots owl-carousel">
+                <div class="card rounded-l shadow-l" data-card-height="320">
+                    <div class="card-bottom">
+                        <h1 class="font-24 font-700">OHIOH-Research-APP</h1>
+                        <p class="boxed-text-xl">
+                            We bring Tracing-Research to the university of applied sciences Kiel.
+                        </p>
+                    </div>
+                    <div class="card-overlay bg-gradient-fade"></div>
+                    <div class="card-bg owl-lazy" data-src="images/pictures/main.png"></div>
+                </div>
+                <div class="card rounded-l shadow-l" data-card-height="320">
+                    <div class="card-bottom">
+                        <h1 class="font-24 font-700">Our Health In Our Hands</h1>
+                        <p class="boxed-text-xl">
+                            The OHIOH-Research-APP, fully featured, supporting PWA and Native Dark Mode!
+                        </p>
+                    </div>
+                    <div class="card-overlay bg-gradient-fade"></div>
+                    <div class="card-bg owl-lazy" data-src="images/pictures/BannerOne.png"></div>
+                </div>
+                <div class="card rounded-l shadow-l" data-card-height="320">
+                    <div class="card-bottom">
+                        <h1 class="font-24 font-700">University-Quality</h1>
+                        <p class="boxed-text-xl">
+                            Volunteers work day and night to realize this project4you.
+                        </p>
+                    </div>
+                    <div class="card-overlay bg-gradient-fade"></div>
+                    <div class="card-bg owl-lazy" data-src="images/pictures/BannerOne.png"></div>
+                </div>
+            </div>
+
+            <div class="content mt-0">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#"
+                            class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">Research</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#"
+                            class="btn btn-full btn-border btn-m rounded-s text-uppercase font-900 shadow-l border-highlight color-highlight">Student-APP</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="content mb-2">
+                <h5 class="float-left font-16 font-500">APP-Features:</h5>
+                <a class="float-right font-12 color-highlight mt-n1" href="#">View All</a>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="double-slider text-center owl-carousel owl-no-dots">
+                <div class="item bg-theme rounded-m shadow-m">
+                    <i class="mt-4 mb-4" data-feather="shield" data-feather-line="1" data-feather-size="45"
+                        data-feather-color="blue2-dark" data-feather-bg="blue2-fade-light"></i>
+                    <h5 class="font-16">Open-Source</h5>
+                    <p class="line-height-s font-11">
+                        Built with care and <br>every detail in mind to give you the best open-source experiance. 100%
+                        OPEN-SOURCE in each step.
+                    </p>
+                </div>
+                <div class="item bg-theme rounded-m shadow-m">
+                    <i class="mt-4 mb-4" data-feather="smartphone" data-feather-line="1" data-feather-size="45"
+                        data-feather-color="brown1-dark" data-feather-bg="brown1-fade-light"></i>
+                    <h5 class="font-16">PWA Ready</h5>
+                    <p class="line-height-s font-11">
+                        Just add it to your <br>Home Screen and enjoy to fully supported APP-World-Features.
+                    </p>
+                </div>
+                <div class="item bg-theme rounded-m shadow-m">
+                    <i class="mt-4 mb-4" data-feather="sun" data-feather-line="1" data-feather-size="45"
+                        data-feather-color="yellow1-dark" data-feather-bg="yellow1-fade-light"></i>
+                    <h5 class="font-16">Easy to handle and customizable.</h5>
+                    <p class="line-height-s font-11">
+                        Light & Dark and <br> Auto Dark Detection
+                    </p>
+                </div>
+                <div class="item bg-theme rounded-m shadow-m">
+                    <i class="mt-4 mb-4" data-feather="smile" data-feather-line="1" data-feather-size="45"
+                        data-feather-color="green1-dark" data-feather-bg="green1-fade-light"></i>
+                    <h5 class="font-16"> Non-Profit</h5>
+                    <p class="line-height-s font-11">
+                        Built for you and me <br> from students for students
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="card mt-4 preload-img" data-src="images/pictures/BannerOne.png">
+                <div class="card-body">
+                    <h4 class="color-white">Built For You</h4>
+                    <p class="color-white">
+                        Incredibly fast with a focus of usability.
+                    </p>
+                    <div class="card card-style ml-0 mr-0 bg-white">
+                        <div class="row mt-3 pt-1 mb-3">
+                            <div class="col-6">
+                                <i class="float-left ml-3 mr-3" data-feather="globe" data-feather-line="1"
+                                    data-feather-size="35" data-feather-color="blue2-dark"
+                                    data-feather-bg="blue2-fade-light">
+                                </i>
+                                <h5 class="color-black float-left font-13 font-500 line-height-s pb-3 mb-3">Security by
+                                    default<br>high-secure data usage</h5>
+                            </div>
+                            <div class="col-6">
+                                <i class="float-left ml-3 mr-3" data-feather="smartphone" data-feather-line="1"
+                                    data-feather-size="35" data-feather-color="dark2-dark"
+                                    data-feather-bg="dark2-fade-light">
+                                </i>
+                                <h5 class="color-black float-left font-13 font-500 line-height-s pb-3 mb-3">Low energy
+                                    usage <br>Save the battery by default.</h5>
+                            </div>
+                            <div class="col-6">
+                                <i class="float-left ml-3 mr-3" data-feather="user" data-feather-line="1"
+                                    data-feather-size="35" data-feather-color="brown2-dark"
+                                    data-feather-bg="brown2-fade-light">
+                                </i>
+                                <h5 class="color-black float-left font-13 font-500 line-height-s">regular
+                                    Updates:<br>Informations about further App-Updates & Tracing-Research</h5>
+                            </div>
+                            <div class="col-6">
+                                <i class="float-left ml-3 mr-3" data-feather="box" data-feather-line="1"
+                                    data-feather-size="35" data-feather-color="green1-dark"
+                                    data-feather-bg="green1-fade-light">
+                                </i>
+                                <h5 class="color-black float-left font-13 font-500 line-height-s">Transparency
+                                    first<br>No empty promises. </h5>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-overlay bg-highlight opacity-95"></div>
+                <div class="card-overlay dark-mode-tint"></div>
+            </div>
+
+            <div class="card card-style">
+                <div class="content text-center">
+                    <h2>OHIOH-Research-APP Status & Settings:</h2>
+                    <p class="boxed-text-xl">
+                        Fast overview about your privacy settings and data usage.
+                    </p>
+                </div>
+                <div class="divider divider-small mb-3 bg-highlight"></div>
+
+                <div class="content">
+                    <div class="d-flex mb-4 pb-3">
+                        <div>
+                            <i class="far fa-star color-yellow1-dark fa-3x pt-3 icon-size"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-16 font-600">Privacy:</h5>
+                            <p>
+                                Your settings for privacy and data-saving properties:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4 pb-3">
+                        <div>
+                            <i class="fa fa-mobile-alt color-blue2-dark fa-3x pt-3 icon-size"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-16 font-600">Data-Sending-Mode:</h5>
+                            <p>
+                                Your decission to use YOUR data on your way.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-2">
+                        <div>
+                            <i class="far fa-check-circle color-green1-dark fa-3x pt-3 icon-size"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-16 font-600">Actuall App-Informations:</h5>
+                            <p>
+                                Update for the service-work will send you an information notification at the
+                                30.September.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-style preload-img" data-src="images/pictures/11.png" data-card-height="350">
+                <div class="card-center text-center">
+                    <p class="line-height-xl font-19 font-300 color-white pl-3 pr-3 mb-2">
+                        OHIOH-Blog on KIEl.AI:
+                    </p>
+                    <p class="opacity-50 color-white">We work to improve your APP-Experince, the accuracy of your
+                        Smartphone, the Infection-Chain reconstruction etc. </p>
+                    <a href="#"
+                        class="btn btn-m rounded-s btn-border color-white border-white text-uppercase font-900">View
+                        OHIOH-BLOG</a>
+                </div>
+                <div class="card-overlay bg-highlight opacity-95"></div>
+            </div>
+
+            <div class="card card-style">
+                <div class="content">
+                    <h5 class="float-left font-16 font-600">Happy Students:</h5>
+                    <a class="float-right font-12 color-highlight mt-n1" href="#">View All</a>
+                    <div class="clearfix"></div>
+                    <p class="pt-2">
+                        The OHIOH-Research community is growing.XXXX Students are using the APP. For best experinace we
+                        need XXX more userers.Help to share with QR-Code/Link on Whatsapp
+                    </p>
+                </div>
+                <div class="user-list-slider owl-carousel mt-3 mb-n1">
+                    <div class="icon-user">
+                        <img data-src="images/avatars/11l.png" width="55" height="55"
+                            class="rounded-xl owl-lazy shadow-l bg-gradient-blue2">
+                        <p>Jane</p>
+                    </div>
+                    <div class="icon-user">
+                        <img data-src="images/avatars/11l.png" width="55" height="55"
+                            class="rounded-xl owl-lazy shadow-l bg-gradient-red2">
+                        <p>Craig</p>
+                    </div>
+                    <div class="icon-user">
+                        <img data-src="images/avatars/11l.png" width="55" height="55"
+                            class="rounded-xl owl-lazy shadow-l bg-gradient-green1">
+                        <p>Jane</p>
+                    </div>
+                    <div class="icon-user">
+                        <img data-src="images/avatars/11l.png" width="55" height="55"
+                            class="rounded-xl owl-lazy shadow-l bg-gradient-brown1">
+                        <p>Craig</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content mb-3">
+                <h5 class="float-left font-16 font-500">Research we Love</h5>
+                <a class="float-right font-12 color-highlight mt-n1" href="#">View All</a>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="double-slider owl-carousel owl-no-dots text-center">
+                <div class="item bg-theme pb-3 rounded-m shadow-l">
+                    <div data-card-height="200" class="card mb-2 bg-29">
+                        <h5 class="card-bottom color-white mb-2">UserBehaviorCatalog</h5>
+                        <div class="card-overlay bg-gradient opacity-70"></div>
+                    </div>
+                    <p class="mb-3 pl-2 pr-2 pt-2 font-12">
+                        Project to generalize geospatial situations to imporve the interoperability.
+                    </p>
+                    <a href="#"
+                        class="btn btn-xs bg-highlight btn-center-xs rounded-s shadow-s text-uppercase font-900">View</a>
+                </div>
+                <div class="item bg-theme pb-3 rounded-m shadow-l">
+                    <div data-card-height="200" class="card mb-2 bg-18">
+                        <h5 class="card-bottom color-white mb-2">Sensor Research</h5>
+                        <div class="card-overlay bg-gradient opacity-70"></div>
+                    </div>
+                    <p class="mb-3 pl-2 pr-2 pt-2 font-12">
+                        Artifical Inteligance and Roboterarms help to classify the best sensor usage for you.
+                    </p>
+                    <a href="#"
+                        class="btn btn-xs bg-highlight btn-center-xs rounded-s shadow-s text-uppercase font-900">Start
+                        research</a>
+                </div>
+                <div class="item bg-theme pb-3 rounded-m shadow-l">
+                    <div data-card-height="200" class="card mb-2 bg-11">
+                        <h5 class="card-bottom color-white mb-2">Spread-Hotspot-Research:</h5>
+                        <div class="card-overlay bg-gradient opacity-70"></div>
+                    </div>
+                    <p class="mb-3 pl-2 pr-2 pt-2 font-12">
+                        Finding the solution for "danger Zones" by userbehavior to create practical solutions to fight
+                        COVID-19.
+                    </p>
+                    <a href="#"
+                        class="btn btn-xs bg-highlight btn-center-xs rounded-s shadow-s text-uppercase font-900">More</a>
+                </div>
+            </div>
+
+            <div class="card card-style mt-4 shadow-l" data-card-height="150">
+                <div class="card-center pl-3 pr-3">
+                    <h4 class="color-white">Did you know?</h4>
+                    <p class="color-white mb-0 opacity-60">
+                        ...that we build with your help an international Plattform to bring our knowledge to every
+                        human?
+                    </p>
+                </div>
+                <div class="card-overlay bg-highlight opacity-90"></div>
+            </div>
+
+            <div class="card card-style text-center">
+                <div class="content pb-2">
+                    <h1>
+                        <i data-feather="gift" data-feather-line="1" data-feather-size="55"
+                            data-feather-color="red2-dark" data-feather-bg="red2-fade-dark">
+                        </i>
+                    </h1>
+                    <h3 class="font-700 mt-2">Spend a Coffee</h3>
+                    <p class="font-12 mt-n1 color-highlight mb-3">Wanna spend us a Coffee?</p>
+                    <p class="boxed-text-xl">
+                        Night & day avaible 4 you. Aspecially in night we need coffee. We are hapy to share and drink
+                        coffee with you.
+                    </p>
+                    <a href="#"
+                        class="btn btn-center-xl btn-m text-uppercase font-900 bg-highlight rounded-sm shadow-l">Caramel
+                        Macchiato: € 5,25</a>
+                </div>
+            </div>
+
+            <!-- footer and footer card-->
+            <div class="footer" data-menu-load="menu-footer.html"></div>
+        </div>
+        <!-- end of page content-->
+
+
+        <div id="menu-share" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-load="menu-share.html"
+            data-menu-height="420" data-menu-effect="menu-over">
+        </div>
+
+        <div id="menu-highlights" class="menu menu-box-bottom menu-box-detached rounded-m"
+            data-menu-load="menu-colors.html" data-menu-height="510" data-menu-effect="menu-over">
+        </div>
+
+        <div id="menu-main" class="menu menu-box-right menu-box-detached rounded-m" data-menu-width="260"
+            data-menu-load="menu-main.html" data-menu-active="nav-welcome" data-menu-effect="menu-over">
+        </div>
+
+        <!-- Be sure this is on your main visiting page, for example, the index.html page-->
+        <!-- Install Prompt for Android -->
+        <div id="menu-install-pwa-android" class="menu menu-box-bottom menu-box-detached rounded-l"
+            data-menu-height="350" data-menu-effect="menu-parallax">
+            <div class="boxed-text-l mt-4">
+                <img class="rounded-l mb-3" src="images/OHIOHicons/app-icon-128x128.ico" alt="img" width="90">
+                <h4 class="mt-3">OHIOH-APP on your Home Screen</h4>
+                <p>
+                    Install your Research-APP on your home screen, and access it just like a regular app. It really is
+                    that simple!
+                </p>
+                <a href="#"
+                    class="pwa-install btn btn-s rounded-s shadow-l text-uppercase font-900 bg-highlight mb-2">Add to
+                    Home Screen</a><br>
+                <a href="#"
+                    class="pwa-dismiss close-menu color-gray2-light text-uppercase font-900 opacity-60 font-10">Maybe
+                    later</a>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- Install instructions for iOS -->
+        <div id="menu-install-pwa-ios" class="menu menu-box-bottom menu-box-detached rounded-l" data-menu-height="320"
+            data-menu-effect="menu-parallax">
+            <div class="boxed-text-xl mt-4">
+                <img class="rounded-l mb-3" src="images/OHIOHicons/app-icon-128x128.ico" alt="img" width="90">
+                <h4 class="mt-3">OHIOH-APP on your Home Screen</h4>
+                <p class="mb-0 pb-3">
+                    Install your Research-APP on your home screen, and access it just like a regular app. Open your
+                    Safari menu and tap "Add to Home Screen".
+                </p>
+                <div class="clear"></div>
+                <a href="#"
+                    class="pwa-dismiss close-menu color-highlight font-800 opacity-80 text-center text-uppercase">Maybe
+                    later</a><br>
+                <i class="fa-ios-arrow fa fa-caret-down font-40"></i>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/charts.js"></script>
+	<% preact.bodyEnd %>
+</body>
+</html>
