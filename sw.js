@@ -1,5 +1,5 @@
-const staticCacheName = 'OHIOH-static-v1';
-var dynamicCacheName = 'OHIOH-dynamic-v1';
+const staticCacheName = 'OHIOH-static-v2';
+var dynamicCacheName = 'OHIOH-dynamic-v2';
 import runtime from 'offline-plugin/runtime';
 import { getFiles, setupPrecaching, setupRouting } from 'preact-cli/sw';
 import { registerRoute } from 'workbox-routing';
@@ -43,7 +43,7 @@ urlsToCache.push(
 
 	{url: 'index.html', revision: null},
 	{url: 'index-features.html', revision: null},
-	{url: 'index-media.html', revision: null},
+	{url: 'index-research.html', revision: null},
 	{url: 'index-settings', revision: null},
 	{url: 'index-QR.html', revision: null},
 	{url: 'menu-colors.html', revision: null},
@@ -52,8 +52,7 @@ urlsToCache.push(
 	{url: 'menu-share.html', revision: null},
 	{url: '_manifest.json', revision: null},
 	{url: 'pages/offline.html', revision: null},
-	{url: 'pages/404.html', revision: null},
-	{url: 'sw.js', revision: null},
+	{url: 'pages/404.html', revision: null},	
 	{url: 'style/bootstrap.css', revision: null},
 	{url: 'js/pwa.js', revision: null},
 	{url: 'js/custom.js', revision: null},
