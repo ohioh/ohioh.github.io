@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "comment": "Above version must be the same as data-pwa-version,  data-pwa-version can be found in index.html in the manifest tag",
+  "name": "OHIOH-Research-App",
+  "description": "Research from the university of applied sciences in  Kiel",
+  "short_name": "OHIOH",
+  "lang": "en",
+  "scope": ".",
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "generated": "true",
+  "gcm_sender_id": "YOUR_SENDER_ID",
+  "icons": [{
+      "src": "images/OHIOHicons/apple-icon-76x76.png",
+      "sizes": "76x76",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/OHIOHicons/apple-icon-120x120.png",
+      "sizes": "120x120",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/OHIOHicons/apple-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/OHIOHicons/apple-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/OHIOHicons/apple-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/OHIOHicons/apple-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
