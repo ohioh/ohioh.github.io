@@ -1,11 +1,11 @@
 import render from 'preact-render-to-string';
 import { h } from 'preact';
-import style from './style/style.css';
+import style from '/style/style.css';
 
 
 
 function init() {
-	let App = require('./views').default;
+	let App = require('/views').default;
 	let elem = render(<App/>, document.getElementById('root'), elem);
 }
 
