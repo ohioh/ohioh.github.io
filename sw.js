@@ -10,7 +10,7 @@ workbox.setConfig({
 //Caching Everything Inside the Folder of our Item
 workbox.routing.registerRoute(
     new RegExp('.*'),
-    new workbox.strategies.NetworkFirst()
+    new workbox.strategies.CacheFirst()
 );
 
 console.log('[ServiceWorker] Service Worker Running');
