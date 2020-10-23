@@ -32,7 +32,6 @@
     </div>
 
     <div id="page">
-
         <!-- header and footer bar go here-->
         <div class="header header-fixed header-auto-show header-logo-app">
             <a href="index.html" class="header-title">OHIOH-Research-APP</a>
@@ -184,7 +183,7 @@
             </div>
 
 
-            <div class="card mt-4 preload-img" data-src="images/pictures/pic_roof.png">
+            <div class="card mt-4 preload-img" data-src="images/pictures/pic_roof.jpg">
                 <div class="card-body">
                     <h4 class="color-white">Focus of the APP:</h4>
                     <p class="color-white">
@@ -232,53 +231,143 @@
                 <div class="card-overlay dark-mode-tint"></div>
             </div>
 
+
             <div class="card card-style">
-                <div class="content text-center">
-                    <h2>OHIOH-Research-APP Status & Settings:</h2>
-                    <p class="boxed-text-xl">
-                        Fast overview about your privacy settings and data usage.
+                <div class="content">
+                    <h4 class="bolder"></h4>
+                    <p>
+                        Fast settings
                     </p>
                 </div>
-                <div class="divider divider-small mb-3 bg-highlight"></div>
 
-                <div class="content">
-                    <div class="d-flex mb-4 pb-3">
-                        <div>
-                            <i class="far fa-star color-yellow1-dark fa-3x pt-3 icon-size"></i>
-                        </div>
-                        <div>
-                            <h5 class="font-16 font-600">Privacy:</h5>
-                            <p>
-                                Your settings for privacy and data-saving properties:
-                            </p>
+                <div class="content mt-0 mb-0">
+                    <div class="list-group list-custom-small list-icon-0">
+                        <a data-toggle="collapse" href="#collapse-1">
+                            <i class="fa font-14 fa-share-alt color-red2-dark"></i>
+                            <span class="font-14">Security</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                    <div class="collapse" id="collapse-1">
+                        <div class="list-group list-custom-small pl-3">
+                            <a href="#">
+                                <i class="fab font-13 fa-facebook-square color-facebook"></i>
+                                <span>Research-Mode</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab font-13 fa-twitter-square color-twitter"></i>
+                                <span>Encrypting</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                            <a href="#" class="border-0">
+                                <i class="fab font-13 fa-linkedin color-linkedin"></i>
+                                <span>Storage</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="d-flex mb-4 pb-3">
-                        <div>
-                            <i class="fa fa-mobile-alt color-blue2-dark fa-3x pt-3 icon-size"></i>
-                        </div>
-                        <div>
-                            <h5 class="font-16 font-600">Data-Sending-Mode:</h5>
-                            <p>
-                                Your decission to use YOUR data on your way.
-                            </p>
+
+                    <div class="list-group list-custom-small list-icon-0">
+                        <a data-toggle="collapse" href="#collapse-2">
+                            <i class="fa font-14 fa-envelope color-blue2-dark"></i>
+                            <span class="font-14">Privacy</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                    <div class="collapse" id="collapse-2">
+                        <div class="list-group list-custom-small pl-3">
+                            <a href="#">
+                                <i class="fa font-13 fa-home color-green1-dark"></i>
+                                <span>Email</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa font-13 fa-suitcase color-brown1-light"></i>
+                                <span>Name</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                            <a href="#" class="border-0">
+                                <i class="fa font-13 fa-building color-gray2-dark"></i>
+                                <span>Phonenumber</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="d-flex mb-2">
-                        <div>
-                            <i class="far fa-check-circle color-green1-dark fa-3x pt-3 icon-size"></i>
-                        </div>
-                        <div>
-                            <h5 class="font-16 font-600">Actuall App-Informations:</h5>
-                            <p>
-                                Update for the service-work will send you an information notification at the
-                                30.September.
-                            </p>
-                        </div>
+
+                    <div class="list-group list-custom-small list-icon-0">
+                        <a data-toggle="collapse" href="#collapse-3">
+                            <i class="fa font-14 fa-phone color-green1-dark"></i>
+                            <span class="font-14">Sensors</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
                     </div>
+                    <div class="collapse" id="collapse-3">
+                        <div class="d-flex">
+                            <div class="pt-1">
+                                <h5 data-activate="toggle-id-1" class="font-500 font-13">GPS</h5>
+                            </div>
+                            <div class="ml-auto mr-4 pr-2">
+                                <div class="custom-control ios-switch">
+                                    <input type="checkbox" class="ios-input" id="toggle-id-1">
+                                    <label class="custom-control-label" for="toggle-id-1"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-switch="toggle-id-1" class="switch-is-unchecked">
+                            <p class="mb-0 pb-0 pt-2">You have  activeted GPS-Tracing. When you App meets an other App your Device willcheck for some seconds your place. Pleasedont forget to activate the share function in the menu !</p>
+                        </div>
+                        <div class="collapse" id="collapse-3">
+                            <div class="d-flex">
+                                <div class="pt-1">
+                                    <h5 data-activate="toggle-id-1" class="font-500 font-13">Bluetooth</h5>
+                                </div>
+                                <div class="ml-auto mr-4 pr-2">
+                                    <div class="custom-control ios-switch">
+                                        <input type="checkbox" class="ios-input" id="toggle-id-1">
+                                        <label class="custom-control-label" for="toggle-id-1"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-switch="toggle-id-1" class="switch-is-unchecked">
+                                <p class="mb-0 pb-0 pt-2">You have  activeted Bluetooth-Tracing. When you App meets an other App your Device willcheck for some seconds your place. Pleasedont forget to activate the share function in the menu !</p>
+                            </div>
+
+                        </div>
+                        <div class="collapse" id="collapse-3">
+                            <div class="d-flex">
+                                <div class="pt-1">
+                                    <h5 data-activate="toggle-id-1" class="font-500 font-13">Data Spending</h5>
+                                </div>
+                                <div class="ml-auto mr-4 pr-2">
+                                    <div class="custom-control ios-switch">
+                                        <input type="checkbox" class="ios-input" id="toggle-id-1">
+                                        <label class="custom-control-label" for="toggle-id-1"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-switch="toggle-id-1" class="switch-is-unchecked">
+                                <p class="mb-0 pb-0 pt-2">You have  activeted Data  Spending Feature. With this Button you share your Reserach Datato fight COVID19 !</p>
+                            </div>
+                        </div>
+
                 </div>
             </div>
-
+            <div id="menu-cookie-bottom" class="menu menu-box-bottom menu-box-detached rounded-m"
+            data-menu-height="230"
+            data-menu-effect="menu-over"
+            data-menu-select="page-components">
+           <!-- add data-cookie-activate above to auto-activate the menu on cookie detection -->
+           <div class="boxed-text-xl">
+               <h2 class="text-center mt-3 pt-1">We're using cookies</h2>
+               <p class="text-center mt-n2 mb-3 color-highlight">To make your experience awesome!</p>
+               <p>
+                   Our page uses cookies to make your overall experience better, faster and smoother. It's awesome.
+               </p>
+               <!-- add hide-cookie to the class to delete the cookie-->
+               <a href="#" class="close-menu btn btn-sm btn-center-xl rounded-xs shadow-m bg-highlight text-uppercase font-900">Accept</a>
+           </div>
+            </div>
             <div class="card card-style preload-img" data-src="images/pictures/11.png" data-card-height="350">
                 <div class="card-center text-center">
                     <p class="line-height-xl font-19 font-300 color-white pl-3 pr-3 mb-2">
@@ -286,7 +375,8 @@
                     </p>
                     <p class="opacity-50 color-white">We work to improve your APP-Experince, the accuracy of your
                         Smartphone, the Infection-Chain reconstruction etc. </p>
-                    <a href="#"
+                    <a href="http://ohioh.de.www222.your-server.de/blog/"
+                        target="_blank"
                         class="btn btn-m rounded-s btn-border color-white border-white text-uppercase font-900">View
                         OHIOH-BLOG</a>
                 </div>
