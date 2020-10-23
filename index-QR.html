@@ -1,12 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<% for (var chunk in htmlWebpackPlugin.files.css) { %>
-	<link rel="preload" href="<%= htmlWebpackPlugin.files.css[chunk] %>"  as="style">
-	<% } %>
-	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-	<link rel="preload" href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" as="script">
-	<% } %>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,10 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
 	<link rel="manifest" href="_manifest.json" data-pwa-version="1.0.0">
 	<link rel="apple-touch-icon" sizes="180x180" href="images/OHIOHicons/icon-192x192.png">
-	<% preact.headEnd %>
 </head>
 
 <body class="theme-light" data-highlight="OHIOH">
+
+
 
 <div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 
@@ -36,12 +31,18 @@
         <a href="#" data-menu="menu-highlights" class="header-icon header-icon-3"><i class="fas fa-brush"></i></a>
     </div>
     <div id="footer-bar" class="footer-bar-5">
-        <a href="index-features.html"><i data-feather="heart" data-feather-line="1" data-feather-size="21" data-feather-color="red2-dark" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
-        <a href="index-media.html"><i data-feather="image" data-feather-line="1" data-feather-size="21" data-feather-color="green1-dark" data-feather-bg="green1-fade-light"></i><span>Media</span></a>
-        <a href="index.html"><i data-feather="home" data-feather-line="1" data-feather-size="21" data-feather-color="blue2-dark" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
-        <a href="index-QR.html" class="active-nav"><i data-feather="file" data-feather-line="1" data-feather-size="21" data-feather-color="brown1-dark" data-feather-bg="brown1-fade-light"></i><span>QR-Infos</span></a>
-        <a href="index-settings.html"><i data-feather="settings" data-feather-line="1" data-feather-size="21" data-feather-color="gray2-dark" data-feather-bg="gray2-fade-light"></i><span>Settings</span></a>
+        <a href="index-features.html"><i data-feather="heart" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
+        <a href="index-research.html"><i data-feather="bluetooth" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="green1-fade-light"></i><span>Research</span></a>
+        <a href="index.html" class="active-nav"><i data-feather="home" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
+        <a href="index-QR.html"><i data-feather="camera" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="brown1-fade-light"></i><span>QR-Infos</span></a>
+        <a href="index-settings.html"><i data-feather="settings" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="gray2-fade-light"></i><span>Settings</span></a>
     </div>
+
 
     <div class="page-content">
 
@@ -61,74 +62,26 @@
         </div>
 
         <div class="row text-center mb-0">
-            <a href="index-QR.html" class="col-6 pr-2">
+            <a href="index-QR.html" class="col-11 ">
                 <div class="card card-style mr-0 mb-3">
                     <h1 class="center-text pt-4">
-                        <i data-feather="file"
+                        <i data-feather="camera"
                            data-feather-line="1"
-                           data-feather-size="50"
+                           data-feather-size="25"
                            data-feather-color="blue2-dark"
                            data-feather-bg="blue2-fade-light">
                         </i>
                     </h1>
-                    <h4 class="color-theme font-600">General</h4>
+                    <h4 class="color-theme font-600">Scanner</h4>
                     <p class="mt-n2 font-11 color-highlight">
-                        Pushed Informations
+                        Scan OHIOH-QR-Codes here.
                     </p>
-                    <p class="font-10 opacity-30 mb-1">Tap to View</p>
+                    <p class="font-50 opacity-30 mb-1">Tap to View</p>
+                    <div style="width: 500px" id="reader"></div>
                 </div>
             </a>
-            <a href="index-QR.html" class="col-6 pl-2">
-                <div class="card card-style ml-0 mb-3">
-                    <h1 class="center-text pt-4">
-                        <i data-feather="smartphone"
-                           data-feather-line="1"
-                           data-feather-size="50"
-                           data-feather-color="green1-dark"
-                           data-feather-bg="green1-fade-light">
-                        </i>
-                    </h1>
-                    <h4 class="color-theme font-600">Your Informations</h4>
-                    <p class="mt-n2 font-11 color-highlight">
-                        Catched and stored
-                    </p>
-                    <p class="font-10 opacity-30 mb-1">Tap to View</p>
-                </div>
-            </a>
-            <a href="index-QR.html" class="col-6 pr-2">
-                <div class="card card-style mr-0 mb-3">
-                    <h1 class="center-text pt-4">
-                        <i data-feather="box"
-                           data-feather-line="1"
-                           data-feather-size="50"
-                           data-feather-color="magenta1-dark"
-                           data-feather-bg="magenta1-fade-light">
-                        </i>
-                    </h1>
-                    <h4 class="color-theme font-600">Official Covid-19  Infos</h4>
-                    <p class="mt-n2 font-11 color-highlight">
-                        from the governments or our federal state
-                    </p>
-                    <p class="font-10 opacity-30 mb-1">Tap to View</p>
-                </div>
-            </a>
-            <a href="index-QR.html" class="col-6 pl-2">
-                <div class="card card-style ml-0 mb-3">
-                    <h1 class="center-text pt-4">
-                        <i data-feather="zap"
-                           data-feather-line="1"
-                           data-feather-size="50"
-                           data-feather-color="yellow1-dark"
-                           data-feather-bg="yellow1-fade-light">
-                        </i>
-                    </h1>
-                    <h4 class="color-theme font-600">latest Infos</h4>
-                    <p class="mt-n2 font-11 color-highlight">
-                        important...important...important
-                    </p>
-                    <p class="font-10 opacity-30 mb-1">Tap to View</p>
-                </div>
-            </a>
+
+
         </div>
         <a href="index-features.html" class="card card-style mb-3">
             <div class="d-flex pt-3 pb-3">
@@ -226,16 +179,16 @@
          data-menu-active="nav-pages"
          data-menu-effect="menu-over">
     </div>
-
-
-
 </div>
 
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<% preact.bodyEnd %>
+<script src="js/html5-qrcode.min.js"></script>
+<script src="js/jsqrcode-combined.js"></script>
+<script src="js/html5-qrcode.js"></script>
+
 </body>
 </html>
 
