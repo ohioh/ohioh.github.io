@@ -126,15 +126,7 @@
                 <h5>Tracing App</h5>
                 <img class="pageIcon" src="./Web Bluetooth _ Scanning Sample_files/icon.png">
     <h1>Web Bluetooth / Scanning Sample</h1>
-    <p class="availability">
-      Available in <a target="_blank" href="https://www.chromestatus.com/feature/5346724402954240">Chrome 79+</a> |
-      <a target="_blank" href="https://github.com/googlechrome/samples/blob/gh-pages/web-bluetooth/scan.html">View on GitHub</a> |
-      <a href="https://googlechrome.github.io/samples/web-bluetooth/index.html">Browse Samples</a>
-    </p>
-    <p>The <a href="https://developers.google.com/web/updates/2015/07/interact-with-ble-devices-on-the-web">Web Bluetooth
-  API</a> lets websites discover and communicate with devices over the
-Bluetooth 4 wireless standard using the Generic Attribute Profile (GATT). It is
-currently partially implemented in Android M, Chrome OS, Mac, and Windows 10.</p>
+  
 
 <script>
   if('serviceWorker' in navigator) {
@@ -184,8 +176,7 @@ currently partially implemented in Android M, Chrome OS, Mac, and Windows 10.</p
 </script>
 
 
-<p>This sample illustrates basic use of the Web Bluetooth Scanning API to
-report advertising packets from nearby Bluetooth Low Energy Devices.</p>
+
 
 <p>Note: Scanning is still under development. You must be using Chrome 79+
 with the <code>chrome://flags/#enable-experimental-web-platform-features</code>
@@ -196,7 +187,7 @@ flag enabled.</p>
   <input id="allAdvertisements" type="checkbox">
   <input id="name" type="text" size="17" placeholder="Device Name">
   <input id="namePrefix" type="text" size="17" placeholder="Device Name Prefix">
-  <button>Scan for Bluetooth Advertisements</button>
+  <button>Scan for Bluetooth Devices</button>
 </form>
 
 <script>
@@ -327,78 +318,7 @@ const logDataView = (labelOfDataSource, key, valueDataView) => {
   
 
   
-    <h3>JavaScript Snippet</h3>
   
-
-  
-    <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">async</span> <span class="kd">function</span> <span class="nx">onButtonClick</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">filters</span> <span class="o">=</span> <span class="p">[];</span>
-
-  <span class="kd">let</span> <span class="nx">filterName</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#name</span><span class="dl">'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">filterName</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">filters</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="nx">filterName</span><span class="p">});</span>
-  <span class="p">}</span>
-
-  <span class="kd">let</span> <span class="nx">filterNamePrefix</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#namePrefix</span><span class="dl">'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">filterNamePrefix</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">filters</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">namePrefix</span><span class="p">:</span> <span class="nx">filterNamePrefix</span><span class="p">});</span>
-  <span class="p">}</span>
-
-  <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{};</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#allAdvertisements</span><span class="dl">'</span><span class="p">).</span><span class="nx">checked</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">options</span><span class="p">.</span><span class="nx">acceptAllAdvertisements</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">options</span><span class="p">.</span><span class="nx">filters</span> <span class="o">=</span> <span class="nx">filters</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="k">try</span> <span class="p">{</span>
-    <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Requesting Bluetooth Scan with options: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">options</span><span class="p">));</span>
-    <span class="kd">const</span> <span class="nx">scan</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">navigator</span><span class="p">.</span><span class="nx">bluetooth</span><span class="p">.</span><span class="nx">requestLEScan</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
-
-    <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Scan started with:</span><span class="dl">'</span><span class="p">);</span>
-    <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1"> acceptAllAdvertisements: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">scan</span><span class="p">.</span><span class="nx">acceptAllAdvertisements</span><span class="p">);</span>
-    <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1"> active: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">scan</span><span class="p">.</span><span class="nx">active</span><span class="p">);</span>
-    <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1"> keepRepeatedDevices: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">scan</span><span class="p">.</span><span class="nx">keepRepeatedDevices</span><span class="p">);</span>
-    <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1"> filters: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">scan</span><span class="p">.</span><span class="nx">filters</span><span class="p">));</span>
-
-    <span class="nb">navigator</span><span class="p">.</span><span class="nx">bluetooth</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">advertisementreceived</span><span class="dl">'</span><span class="p">,</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Advertisement received.</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">  Device Name: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-      <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">  Device ID: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-      <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">  RSSI: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">rssi</span><span class="p">);</span>
-      <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">  TX Power: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">txPower</span><span class="p">);</span>
-      <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">  UUIDs: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">uuids</span><span class="p">);</span>
-      <span class="nx">event</span><span class="p">.</span><span class="nx">manufacturerData</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">valueDataView</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">logDataView</span><span class="p">(</span><span class="dl">'</span><span class="s1">Manufacturer</span><span class="dl">'</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">valueDataView</span><span class="p">);</span>
-      <span class="p">});</span>
-      <span class="nx">event</span><span class="p">.</span><span class="nx">serviceData</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">valueDataView</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">logDataView</span><span class="p">(</span><span class="dl">'</span><span class="s1">Service</span><span class="dl">'</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">valueDataView</span><span class="p">);</span>
-      <span class="p">});</span>
-    <span class="p">});</span>
-
-    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">stopScan</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span>
-    <span class="kd">function</span> <span class="nx">stopScan</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Stopping scan...</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">scan</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
-      <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Stopped.  scan.active = </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">scan</span><span class="p">.</span><span class="nx">active</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>  <span class="p">{</span>
-    <span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Argh! </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="cm">/* Utils */</span>
-
-<span class="kd">const</span> <span class="nx">logDataView</span> <span class="o">=</span> <span class="p">(</span><span class="nx">labelOfDataSource</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">valueDataView</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">hexString</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nb">Uint8Array</span><span class="p">(</span><span class="nx">valueDataView</span><span class="p">.</span><span class="nx">buffer</span><span class="p">)].</span><span class="nx">map</span><span class="p">(</span><span class="nx">b</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">).</span><span class="nx">padStart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">);</span>
-  <span class="p">}).</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
-  <span class="kd">const</span> <span class="nx">textDecoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TextDecoder</span><span class="p">(</span><span class="dl">'</span><span class="s1">ascii</span><span class="dl">'</span><span class="p">);</span>
-  <span class="kd">const</span> <span class="nx">asciiString</span> <span class="o">=</span> <span class="nx">textDecoder</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">valueDataView</span><span class="p">.</span><span class="nx">buffer</span><span class="p">);</span>
-  <span class="nx">log</span><span class="p">(</span><span class="s2">`  </span><span class="p">${</span><span class="nx">labelOfDataSource</span><span class="p">}</span><span class="s2"> Data: `</span> <span class="o">+</span> <span class="nx">key</span> <span class="o">+</span>
-      <span class="dl">'</span><span class="se">\n</span><span class="s1">    (Hex) </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">hexString</span> <span class="o">+</span>
-      <span class="dl">'</span><span class="se">\n</span><span class="s1">    (ASCII) </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">asciiString</span><span class="p">);</span>
-<span class="p">};</span></code></pre></figure>
   
 
 
