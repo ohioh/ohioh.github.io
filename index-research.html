@@ -269,8 +269,7 @@ flag enabled.</p>
   } else {
     options.filters = filters;
   }
-  setInterval(async function(){ 
-    try {
+   try {
     log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
     const scan = await navigator.bluetooth.requestLEScan(options);
 
@@ -288,13 +287,7 @@ flag enabled.</p>
       scan.stop();
       log('Stopped.  scan.active = ' + scan.active);
     }
-  } catch(error)  {
-    log('Argh! ' + error);
-  }
-    
-   }, 5000);
-   try {
-   
+ 
 
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
       log('Advertisement received.');
