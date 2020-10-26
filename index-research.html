@@ -240,11 +240,13 @@ flag enabled.</p>
   
     
       <script>async function onButtonClick() {
-  
+  chrome.bluetooth.getAdapterState(function(adapter) {
+  log("Adapter " + adapter.address + ": " + adapter.name);
+});
 
   let options = {};
   options.acceptAllAdvertisements = true;
-  
+  chrome.blue
    try {
     log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
     const scan = await navigator.bluetooth.requestLEScan(options);
