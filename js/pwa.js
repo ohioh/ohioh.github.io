@@ -1,10 +1,19 @@
 //Loading the Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
+        //then register  ServiceWorker
         navigator.serviceWorker.register('./sw.js', {
             scope: ''
-        });
-    });
+        }).then(function (reg) {
+            console.log("[OHIOH] ServiceWorker is registered @  (Scope: {reg.scope})");
+            //navigator.serviceWorker.register('/swbluetooth.js');
+            console.log("[OHIOH] Tracing-Sensor-Worker is  registered");
+            });
+        }).catch(functions (error) {
+            console.log("[OHIOH] ServiceWorker Error (${error})");
+        }) else {
+            console.warn("[OHIOH] ServiceWorker not avaible");
+        };
 }
 
 // if ('serviceWorker' in navigator) {

@@ -13,4 +13,4 @@ workbox.routing.registerRoute(
     new workbox.strategies.CacheFirst()
 );
 
-console.log('[ServiceWorker] Service Worker Running');
+console.log('[OHIOH] Service Worker Running');
