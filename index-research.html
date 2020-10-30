@@ -118,8 +118,24 @@
 
         <div class="card card-style">
             <div class="content">
-                <h5>Participate</h5>
-                <p>The Research Feature is "less privacy-by-default" and more RESEARCH. If activated Informations about Device-Name, RSSI, TX and Maunfactor data are send to the Research-Backend.There your data are secured.</p>
+               <h5>Tracing App</h5>
+                <i class="material-icons" style="font-size:48px;color:red">bluetooth</i>
+    <h1>Ohioh Bluetooth  Scanning </h1>
+		    
+		    <p>Note: Scanning is still under development. You must be using Chrome 79+
+with the <code>chrome://flags/#enable-experimental-web-platform-features</code>
+flag enabled.</p>
+
+<form>
+
+  <button class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">Start Scanning</button>
+</form>
+		    <h3>Live Output</h3>
+<div id="output" class="output">
+  <div id="content"></div>
+  <div id="status"></div>
+  <pre id="log"></pre>
+</div>
 
             </div>
         </div>
@@ -161,6 +177,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="js/scanner.js"></script>
 
 </body>
 </html>
