@@ -119,7 +119,9 @@
  
 
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
-      log('Advertisement received.');
+      if(event.device.name == 'Ohioh')
+      {
+         log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
       log('  Device ID: ' + event.device.id);
       log('  RSSI: ' + event.rssi);
@@ -131,6 +133,8 @@
       event.serviceData.forEach((valueDataView, key) => {
         logDataView('Service', key, valueDataView);
       });
+      }
+     
     });
 
     
