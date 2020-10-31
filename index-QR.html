@@ -72,10 +72,8 @@
                         </i>
                     </h1>
                     <h4 class="color-theme font-600">Scan</h4>
-                    <p class="mt-n2 font-11 color-highlight">
-                        Scan the QR code
-                    </p>
-                    <p class="font-10 opacity-30 mb-1">Tap to View</p>
+                    <div id="qr-reader" style="width:500px"></div>
+			<div id="qr-reader-results"></div>
                 </div>
             </div>
             <a href="index-QR.html" class="col-6 pl-2">
@@ -231,36 +229,26 @@
 
 </div>
 
-<script src="https://raw.githubusercontent.com/mebjas/html5-qrcode/master/minified/html5-qrcode.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script>
-function docReady(fn) {
-    // see if DOM is already available
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-        // call on next available tick
-        setTimeout(fn, 1);
-    } else {
-        document.addEventListener("DOMContentLoaded", fn);
+var resultContainer = document.getElementById('qr-reader-results');
+var lastResult, countResults = 0;
+
+function onScanSuccess(qrCodeMessage) {
+    if (qrCodeMessage !== lastResult) {
+        ++countResults;
+        lastResult = qrCodeMessage;
+        resultContainer.innerHTML 
+            += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
     }
 }
-docReady(function() {
-	hljs.initHighlightingOnLoad();
-	var results = document.getElementById('scanned-result');
-	var lastMessage;
-	var codesFound = 0;
-	function onScanSuccess(qrCodeMessage) {
-		if (lastMessage !== qrCodeMessage) {
-			lastMessage = qrCodeMessage;
-			++codesFound;
-			results.innerHTML += `<div>[${codesFound}] - ${qrCodeMessage}</div>`;
-		}
-	}
-	var html5QrcodeScanner = new Html5QrcodeScanner(
-		"reader", { fps: 10, qrbox: 250 }, /* verbose= */ true);
-	html5QrcodeScanner.render(onScanSuccess);
-});
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "qr-reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess);
 </script>
 <% preact.bodyEnd %>
 </body>
