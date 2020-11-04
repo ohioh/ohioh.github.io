@@ -63,7 +63,7 @@
         <div class="row text-center mb-0">
             <div class="col-6 pr-2">
                 <div id="reader" class="card card-style mr-0 mb-3">
-                    <div id="qr-reader" style="width:500px"></div>
+                    <div id="qr-reader" style="width:100%"></div>
 			<div id="qr-reader-results"></div>
                 </div>
             </div>
@@ -238,7 +238,7 @@ function onScanSuccess(qrCodeMessage) {
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
-    "qr-reader", { fps: 10, qrbox: 500 });
+    "qr-reader", { fps: 10, qrbox: 250 } true);
 html5QrcodeScanner.render(onScanSuccess);
 </script>
 <% preact.bodyEnd %>
