@@ -21,36 +21,7 @@
         <link rel="manifest" href="/_manifest.json" data-pwa-version="1.0.1">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 
-        <script> 
-           var url = 'http://195.201.35.222:3000/login?email=Mbadhon@gmail.com&password=badhon'
-           function submitInfo(){
-    
-    let form = document.forms["myForm"];
-    let fd = new FormData(form);
-    let data = {};
-    for (let [key, prop] of fd) {
-      data[key] = prop;
-    }
-    VALUE = JSON.stringify(data, null, 2);
-    console.log(VALUE);
-
-    const myHeaders = new Headers();
-    myHeaders.append('Content-Type', 'application/json');
-
-    fetch('http://195.201.35.222:3000/signup', {
-        method: 'POST',
-        headers: myHeaders,
-        mode: 'cors',
-        cache: 'default',
-        body: VALUE
-    })
-    .then(data => data.json())
-    .then(data =>  { console.log(data) }) 
-    .catch((err) => {
-        console.error(err);
-    })
-}
-        </script>
+      
     </head>
 
 <body class="theme-light" data-highlight="blue2">
@@ -93,7 +64,36 @@
             <div class="card-overlay dark-mode-tint"></div>
             <div class="card-bg preload-img" data-src=""></div>
         </div>
+  <script> 
+           var url = 'http://195.201.35.222:3000/login?email=Mbadhon@gmail.com&password=badhon'
+           function submitInfo(){
+    
+    let form = document.forms["myForm"];
+    let fd = new FormData(form);
+    let data = {};
+    for (let [key, prop] of fd) {
+      data[key] = prop;
+    }
+    VALUE = JSON.stringify(data, null, 2);
+    console.log(VALUE);
 
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    fetch('http://195.201.35.222:3000/signup', {
+        method: 'POST',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default',
+        body: VALUE
+    })
+    .then(data => data.json())
+    .then(data =>  { console.log(data) }) 
+    .catch((err) => {
+        console.error(err);
+    })
+}
+        </script>
         <div class="card card-style">
             <div class="content mb-0 mt-1">
                 
