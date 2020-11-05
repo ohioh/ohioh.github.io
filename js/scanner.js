@@ -159,7 +159,7 @@
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
     //  if(event.device.name == 'Ohioh')
     //  {
-      if ( event.device.name != "")
+      if ( event.device.name != null)
       {
          var request = db.transaction(["employee"], "readwrite")
             .objectStore("employee")
@@ -170,7 +170,7 @@
             };
             
             request.onerror = function(event) {
-               alert("Unable to add data\r\"+event.device.name" +"nKenny is aready exist in your database! ");
+               alert("Unable to add data "+event.device.name +"  is aready exist in your database! ");
             }
          log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
