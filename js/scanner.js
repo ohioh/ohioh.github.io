@@ -170,7 +170,7 @@
             };
             
             request.onerror = function(event) {
-               alert("Unable to add data\r\"+event.device.name +"nKenny is aready exist in your database! ");
+               alert("Unable to add data\r\"+event.device.name" +"nKenny is aready exist in your database! ");
             }
          log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
