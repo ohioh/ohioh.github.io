@@ -1,12 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<% for (var chunk in htmlWebpackPlugin.files.css) { %>
-	<link rel="preload" href="<%= htmlWebpackPlugin.files.css[chunk] %>"  as="style">
-	<% } %>
-	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-	<link rel="preload" href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" as="script">
-	<% } %>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
 	<link rel="manifest" href="_manifest.json" data-pwa-version="1.0.0">
 	<link rel="apple-touch-icon" sizes="180x180" href="images/OHIOHicons/icon-192x192.png">
-	<% preact.headEnd %>
 </head>
 
 <body class="theme-light" data-highlight="OHIOH">
@@ -241,6 +234,5 @@ var html5QrcodeScanner = new Html5QrcodeScanner(
     "qr-reader", { fps: 10, qrbox: 250 });
 html5QrcodeScanner.render(onScanSuccess);
 </script>
-<% preact.bodyEnd %>
 </body>
 </html>
