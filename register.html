@@ -76,7 +76,7 @@
     }
     VALUE = JSON.stringify(data, null, 2);
     console.log(VALUE);
-
+alert("Hello! I am an alert box!!");
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
@@ -88,7 +88,12 @@
         body: VALUE
     })
     .then(data => data.json())
-    .then(data =>  { console.log(data) }) 
+    .then(data =>  { 
+                   console.log(data) 
+                    
+                   window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
+                    
+                   }) 
     .catch((err) => {
         console.error(err);
     })
