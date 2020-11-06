@@ -12,7 +12,7 @@
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    fetch('//195.201.35.222:3000/login', {
+    fetch('https//195.201.35.222:3000/login', {
         method: 'POST',
         headers: myHeaders,
         mode: 'cors',
