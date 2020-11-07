@@ -174,6 +174,7 @@
             request.onerror = function(event) {
                alert("Unable to add data "+event.device.name +"  is aready exist in your database! ");
             }
+          consol.log("uuids:"+event.uuids );
          log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
       log('  Device ID: ' + event.device.id);
