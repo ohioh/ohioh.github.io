@@ -164,6 +164,22 @@
         
         if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
         {
+          Notification.requestPermission(result => {
+  if (result === 'granted') {
+    showNotification('So nice to have you here!', 'Hey there!')
+  }
+});
+
+function showNotification(title, message) {
+  if ('Notification' in window) {
+    navigator.serviceWorker.ready.then(registration => {
+      registration.showNotification(title, {
+        body: message,
+        tag: 'vibration-sample'
+      });
+    });
+  }
+}
          var request = db.transaction(["employee"], "readwrite")
             .objectStore("employee")
             .add({ id:event.uuids , name: event.device.name});
