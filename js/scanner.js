@@ -161,6 +161,7 @@
     //  {
       if ( event.device.name != null)
       {
+         consol.log("uuids:"+event.uuids );
         if(event.uuids == '0000180F-0000-1000-8000-00805f9b34fb')
         {
          var request = db.transaction(["employee"], "readwrite")
@@ -174,7 +175,7 @@
             request.onerror = function(event) {
                alert("Unable to add data "+event.device.name +"  is aready exist in your database! ");
             }
-          consol.log("uuids:"+event.uuids );
+         
          log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
       log('  Device ID: ' + event.device.id);
