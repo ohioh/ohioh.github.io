@@ -162,7 +162,7 @@
       if ( event.device.name != null)
       {
         log('  UUIDs new: ' + event.uuids);
-        if(event.uuids == '0000180F-0000-1000-8000-00805f9b34fb')
+        if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
         {
          var request = db.transaction(["employee"], "readwrite")
             .objectStore("employee")
