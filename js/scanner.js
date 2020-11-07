@@ -198,6 +198,7 @@ function showNotification(title, message) {
       log('  RSSI: ' + event.rssi);
       log('  TX Power: ' + event.txPower);
       log('  UUIDs: ' + event.uuids);
+           log('  Time: ' +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString());
      
       }
       
