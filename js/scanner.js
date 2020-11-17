@@ -270,7 +270,7 @@ function showNotification(title, message) {
             }
          }
 
-     setTimeout(stopScan, 2000);
+     setTimeout(stopScan, 5000);
     function stopScan() {
      log('Stopping scan...');
       scan.stop();
