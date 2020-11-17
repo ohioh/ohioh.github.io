@@ -216,7 +216,7 @@ function showNotification(title, message) {
 /* Utils */
  async function newscanner() {
   
-
+var fruits = [];
   let options = {};
   options.acceptAllAdvertisements = true;
   
@@ -278,13 +278,23 @@ function showNotification(title, message) {
     }
  
 
+     var devices = [];
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
     //  if(event.device.name == 'Ohioh')
     //  {
       if ( event.device.name != null)
       {
-        
-        if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
+        function checkAdult(device) {
+            return device == event.uuids;
+          }
+          if(devices.find(checkAdult))
+{
+
+}
+else{
+
+devices.push(event.uuids);
+    if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
         {
           Notification.requestPermission(result => {
   if (result === 'granted') {
@@ -323,12 +333,13 @@ function showNotification(title, message) {
            log('  Time: ' +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString());
      
       }
+}
+        
       
       }
     //  }
      
     });
-
     
   } catch(error)  {
     log('Argh! ' + error);
