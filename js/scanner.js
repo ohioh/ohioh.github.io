@@ -214,7 +214,126 @@ function showNotification(title, message) {
 }
 
 /* Utils */
+ async function newscanner() {
+  
 
+  let options = {};
+  options.acceptAllAdvertisements = true;
+  
+   try {
+    log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
+    const scan = await navigator.bluetooth.requestLEScan(options);
+
+    log('Scan started with:');
+    log(' acceptAllAdvertisements: ' + scan.acceptAllAdvertisements);
+    log(' active: ' + scan.active);
+    log(' keepRepeatedDevices: ' + scan.keepRepeatedDevices);
+    log(' filters: ' + JSON.stringify(scan.filters));
+
+  
+         //prefixes of implementation that we want to test
+         window.indexedDB = window.indexedDB || window.mozIndexedDB || 
+         window.webkitIndexedDB || window.msIndexedDB;
+         
+         //prefixes of window.IDB objects
+         window.IDBTransaction = window.IDBTransaction || 
+         window.webkitIDBTransaction || window.msIDBTransaction;
+         window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || 
+         window.msIDBKeyRange
+         
+         if (!window.indexedDB) {
+            window.alert("Your browser doesn't support a stable version of IndexedDB.")
+         }
+         
+         const employeeData = [
+            {   id: "44546-5465-5654-65465" ,name: "Tjark"  },
+            
+         ];
+         var db;
+         var request = window.indexedDB.open("newDatabase", 1);
+         
+         request.onerror = function(event) {
+            console.log("error: ");
+         };
+         
+         request.onsuccess = function(event) {
+            db = request.result;
+            console.log("success: "+ db);
+         };
+         
+         request.onupgradeneeded = function(event) {
+            var db = event.target.result;
+            var objectStore = db.createObjectStore("employee", {keyPath: "id"});
+            
+            for (var i in employeeData) {
+               objectStore.add(employeeData[i]);
+            }
+         }
+
+    setTimeout(stopScan, 5000);
+    function stopScan() {
+    //  log('Stopping scan...');
+     // scan.stop();
+    //  log('Stopped.  scan.active = ' + scan.active);
+    }
+ 
+
+    navigator.bluetooth.addEventListener('advertisementreceived', event => {
+    //  if(event.device.name == 'Ohioh')
+    //  {
+      if ( event.device.name != null)
+      {
+        
+        if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
+        {
+          Notification.requestPermission(result => {
+  if (result === 'granted') {
+    showNotification('So nice to have you here!', 'Hey there!')
+  }
+});
+
+function showNotification(title, message) {
+  if ('Notification' in window) {
+    navigator.serviceWorker.ready.then(registration => {
+      registration.showNotification(title, {
+        body: message,
+        tag: 'vibration-sample'
+      });
+    });
+  }
+}
+         var request = db.transaction(["employee"], "readwrite")
+            .objectStore("employee")
+            .add({ id:event.uuids , name: event.device.name});
+            
+            request.onsuccess = function(event) {
+               alert(event.device.name +" has been added to your database.");
+            };
+            
+            request.onerror = function(event) {
+               alert("Unable to add data "+event.device.name +"  is aready exist in your database! ");
+            }
+         
+         log('Advertisement received.');
+      log('  Device Name: ' + event.device.name);
+      log('  Device ID: ' + event.device.id);
+      log('  RSSI: ' + event.rssi);
+      log('  TX Power: ' + event.txPower);
+      log('  UUIDs: ' + event.uuids);
+           log('  Time: ' +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString());
+     
+      }
+      
+      }
+    //  }
+     
+    });
+
+    
+  } catch(error)  {
+    log('Argh! ' + error);
+  }
+}
 const logDataView = (labelOfDataSource, key, valueDataView) => {
   const hexString = [...new Uint8Array(valueDataView.buffer)].map(b => {
     return b.toString(16).padStart(2, '0');
