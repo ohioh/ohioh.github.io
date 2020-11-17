@@ -323,12 +323,12 @@ function showNotification(title, message) {
     //  }
      
     });
-
+scan.stop();
     
   } catch(error)  {
     log('Argh! ' + error);
   }
-   scan.stop();
+   
 }
 const logDataView = (labelOfDataSource, key, valueDataView) => {
   const hexString = [...new Uint8Array(valueDataView.buffer)].map(b => {
