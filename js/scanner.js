@@ -270,12 +270,7 @@ function showNotification(title, message) {
             }
          }
 
-    setTimeout(stopScan, 5000);
-    function stopScan() {
-    //  log('Stopping scan...');
-     // scan.stop();
-    //  log('Stopped.  scan.active = ' + scan.active);
-    }
+    
  
 
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
@@ -333,6 +328,7 @@ function showNotification(title, message) {
   } catch(error)  {
     log('Argh! ' + error);
   }
+   scan.stop();
 }
 const logDataView = (labelOfDataSource, key, valueDataView) => {
   const hexString = [...new Uint8Array(valueDataView.buffer)].map(b => {
