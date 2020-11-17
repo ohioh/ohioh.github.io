@@ -282,6 +282,7 @@ var fruits = [];
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
     //  if(event.device.name == 'Ohioh')
     //  {
+         log('devices list  ' + devices);
       if ( event.device.name != null)
       {
         function checkAdult(device) {
