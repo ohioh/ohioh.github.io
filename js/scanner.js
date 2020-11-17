@@ -270,7 +270,12 @@ function showNotification(title, message) {
             }
          }
 
-    
+     setTimeout(stopScan, 2000);
+    function stopScan() {
+     log('Stopping scan...');
+      scan.stop();
+      log('Stopped.  scan.active = ' + scan.active);
+    }
  
 
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
@@ -323,7 +328,7 @@ function showNotification(title, message) {
     //  }
      
     });
-scan.stop();
+
     
   } catch(error)  {
     log('Argh! ' + error);
