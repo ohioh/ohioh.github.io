@@ -270,7 +270,7 @@ var fruits = [];
             }
          }
 
-     setTimeout(stopScan, document.getElementById("quantity").value);
+     setTimeout(stopScan, document.getElementById("quantity").value *1000);
     function stopScan() {
      log('Stopping scan...');
       scan.stop();
