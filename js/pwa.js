@@ -2,25 +2,24 @@
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         //then register  ServiceWorker
-        navigator.serviceWorker.register('./sw.js', {
-            scope: ''
-        }).then(function (reg) {
-            console.log("[OHIOH] ServiceWorker is registered @  (Scope: {reg.scope})");
-            //navigator.serviceWorker.register('/swbluetooth.js');
-            console.log("[OHIOH] Tracing-Sensor-Worker is  registered");
-            });
-        }).catch(functions (error) {
-            console.log("[OHIOH] ServiceWorker Error (${error})");
-        }) else {
-            console.warn("[OHIOH] ServiceWorker not avaible");
-        };
+        navigator.serviceWorker.register('../sw.js',
+           { scope: '.'}
+           ).then(function(reg) {
+            if(reg.installing) {
+                console.log('[OHIOH] Service worker installing');
+              } else if(reg.waiting) {
+                console.log('[OHIOH] Service worker installed');
+              } else if(reg.active) {
+                console.log('[OHIOH] Service worker active');
+              }
+        }).catch(function(error) {
+            console.log("[OHIOH] ServiceWorker Error:)" + error);
+        })
+    })
+} else {
+    console.warn("[OHIOH] ServiceWorker not avaible");
 }
 
-// if ('serviceWorker' in navigator) {
-// 	navigator.serviceWorker.register('./sw.js')
-// 		.then(registration => console.log('[OHIOH]: The Serviceworker was registered.',registration.scope))
-// 		.catch(err => console.error('[OHIOH]: Not able to register ServiceWorker.', err.scope))
-// }
 
 
 
@@ -29,7 +28,7 @@ $(function () {
 
     var pwaVersion = '1.0.1'; //must be identical to _manifest.json version. If not it will create update window loop
     var pwaCookie = true; // if set to false, the PWA prompt will appear even if the user selects "maybe later"
-    var pwaNoCache = false; // always keep the cache clear to serve the freshest possible content
+    var pwaNoCache = true; // always keep the cache clear to serve the freshest possible content
 
 
     $('[data-pwa-version]').data('pwa-version', pwaVersion);

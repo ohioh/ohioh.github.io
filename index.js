@@ -1,7 +1,3 @@
-import render from 'preact-render-to-string';
-import { h } from 'preact';
-import './index.sass';
-import style from './style.css';
 
 
 
@@ -17,7 +13,7 @@ init();
 if (process.env.NODE_ENV === 'production') {
 	// cache all assets if browser supports serviceworker
 	if ('serviceWorker' in navigator && location.protocol === 'https:') {
-		navigator.serviceWorker.register('/service-worker.js');
+		navigator.serviceWorker.register('/sw.js', {scope: './'.then(function(serviceWorkerRegistration) { ... });
 	}
 	// add Google Analytics
 } else {
