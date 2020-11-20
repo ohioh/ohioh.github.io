@@ -287,7 +287,7 @@ var fruits = [];
       if ( event.device.name != null)
       {
         function checkAdult(device) {
-          log('devices list  ' + device+'   '+ event.uuids);
+          log('||' + device+'|'+ event.uuids+"||");
             return device == event.uuids;
           }
           if(devices.find(checkAdult))
@@ -350,7 +350,7 @@ function showNotification(title, message) {
     .then(data => data.json())
     .then(data =>  { console.log(data)
                   // window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
-                    alert("Congrats you are successfully logged in");
+                 //   alert("Congrats you are successfully logged in");
                    }) 
     .catch((err) => {
         console.error(err);
