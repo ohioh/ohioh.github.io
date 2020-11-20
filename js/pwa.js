@@ -1,36 +1,59 @@
 //Loading the Service Worker
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-        //then register  ServiceWorker
-        navigator.serviceWorker.register('./sw.js', {
-            scope: ''
-        }).then(function (reg) {
-            console.log("[OHIOH] ServiceWorker is registered @  (Scope: {reg.scope})");
-            //navigator.serviceWorker.register('/swbluetooth.js');
-            console.log("[OHIOH] Tracing-Sensor-Worker is  registered");
-            });
-        }).catch(functions (error) {
-            console.log("[OHIOH] ServiceWorker Error (${error})");
-        }) else {
-            console.warn("[OHIOH] ServiceWorker not avaible");
-        };
-}
-
 // if ('serviceWorker' in navigator) {
-// 	navigator.serviceWorker.register('./sw.js')
-// 		.then(registration => console.log('[OHIOH]: The Serviceworker was registered.',registration.scope))
-// 		.catch(err => console.error('[OHIOH]: Not able to register ServiceWorker.', err.scope))
+//     window.addEventListener('load', function () {
+//         //then register  ServiceWorker
+//         navigator.serviceWorker.register('../sw.js', {scope: "./"})
+//         .then(function(reg) {
+//             if(reg.installing) {
+//                 console.log('[OHIOH] Service worker installing');
+//               } else if(reg.waiting) {
+//                 console.log('[OHIOH] Service worker installed');
+//               } else if(reg.active) {
+//                 console.log('[OHIOH] Service worker active');
+//               }
+//         }).catch(function(error) {
+//             console.log("[OHIOH] ServiceWorker Error:)" + error);
+//         })
+//     })
+// } else {
+//     console.warn("[OHIOH] ServiceWorker not avaible");
 // }
+let PRECACHE = 'OHIOHCache-static';
+
+
+// $(document).ready(function () {
+//     'use strict'
+//     navigator.serviceWorker.getRegistrations()
+//         .then(function(registrations) {
+//             for(let registration of registrations) {
+//                 registration.unregister();
+//             }
+//         });
+// })
+
+
+if ('serviceWorker' in navigator) {
+
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('[OHIOH] ServiceWorker registration successful with scope: ', registration.scope);
+        swInstalled = true;
+      }, function(err) {
+        // registration failed :(
+        console.log('[OHIOH] ServiceWorker registration failed: ', err);
+      });
+    });
+
+  }
 
 
 
-$(function () {
+$(document).ready(function () {
     'use strict'
 
     var pwaVersion = '1.0.1'; //must be identical to _manifest.json version. If not it will create update window loop
     var pwaCookie = true; // if set to false, the PWA prompt will appear even if the user selects "maybe later"
-    var pwaNoCache = false; // always keep the cache clear to serve the freshest possible content
-
 
     $('[data-pwa-version]').data('pwa-version', pwaVersion);
 
@@ -59,14 +82,14 @@ $(function () {
         createCookie(e, "", -1)
     }
 
-    //Enabling dismiss button
-    setTimeout(function () {
-        $('.pwa-dismiss').on('click', function () {
-            console.log('User Closed Add to Home / PWA Prompt')
-            createCookie('OHIOH_pwa_rejected_install', true, 1);
-            $('body').find('#menu-install-pwa-android, #menu-install-pwa-ios, .menu-hider').removeClass('menu-active');
-        });
-    }, 1500);
+    // //Enabling dismiss button
+    // setTimeout(function () {
+    //     $('.pwa-dismiss').on('click', function () {
+    //         console.log('User Closed Add to Home / PWA Prompt')
+    //         createCookie('OHIOH_pwa_rejected_install', true, 1);
+    //         $('body').find('#menu-install-pwa-android, #menu-install-pwa-ios, .menu-hider').removeClass('menu-active');
+    //     });
+    // }, 1500);
 
     //Detecting Mobile Operating Systems
     var isMobile = {
@@ -85,12 +108,12 @@ $(function () {
 
     //Firing PWA prompts for specific versions and when not on home screen.
     if (isMobile.Android()) {
-        console.log('Android Detected');
+        console.log('[OHIOH] Android Detected');
 
         function showInstallPromotion() {
             if (!$('body').hasClass('is-installed')) {
                 if ($('#menu-install-pwa-android, .add-to-home').length) {
-                    console.log('Triggering PWA Menu for Android');
+                    console.log('[OHIOH]  Triggering PWA Menu for Android');
                     if (!readCookie('OHIOH_pwa_rejected_install')) {
                         setTimeout(function () {
                             $('.add-to-home').addClass('add-to-home-visible add-to-home-android');
@@ -98,16 +121,18 @@ $(function () {
                         }, 4500);
                     }
                 } else {
-                    console.log('The div #menu-install-pwa-android was not found. Please add this div to show the install window')
+                    console.log('[OHIOH] The div #menu-install-pwa-android was not found. Please add this div to show the install window')
                 }
             }
         }
+
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             showInstallPromotion();
         });
+
         $('.pwa-install').on('click', function (e) {
             $('body').addClass('is-installed');
             deferredPrompt.prompt();
@@ -128,17 +153,17 @@ $(function () {
 
     if (isMobile.iOS()) {
         if (!isInWebAppiOS) {
-            console.log('iOS Detected');
+            console.log('[OHIOH]  iOS Detected');
             if ($('#menu-install-pwa-ios, .add-to-home').length) {
                 if (!readCookie('OHIOH_pwa_rejected_install')) {
-                    console.log('Triggering PWA / Add to Home Screen Menu for iOS');
+                    console.log('[OHIOH]  Triggering PWA / Add to Home Screen Menu for iOS');
                     setTimeout(function () {
                         $('.add-to-home').addClass('add-to-home-visible add-to-home-ios');
                         $('#menu-install-pwa-ios, .menu-hider').addClass('menu-active');
                     }, 4500);
                 };
             } else {
-                console.log('The div #menu-install-pwa-ios was not found. Please add this div to show the install window')
+                console.log('[OHIOH] The div #menu-install-pwa-ios was not found. Please add this div to show the install window')
             }
         }
     }
@@ -163,15 +188,15 @@ $(function () {
         var counter = 3;
         var interval = setInterval(function () {
             counter--;
-            console.log(counter);
+            console.log('[OHIOH]',counter);
             $('.page-update').html('Updating in ... ' + counter + ' seconds');
             if (counter == 0) {
                 clearInterval(interval);
-                window.location.reload(true)
+                window.location.reload()
             }
         }, 1000);
-        caches.delete('workbox-runtime').then(function () {
-            console.log('Content Updated - Cache Removed!');
+        caches.delete(PRECACHE).then(function () {
+            console.log('[OHIOH] Content Updated - Cache Removed!');
         });
         localStorage.clear();
         sessionStorage.clear()
@@ -198,7 +223,7 @@ $(function () {
                     //console.log(' Checking PWA Content for updates...\n PWA Server Version: ' + onlineVersionNumber + '\n' + ' PWA Cached Version: ' + localVersionNumber);
                     if (onlineVersionNumber != localVersionNumber && onlineVersionNumber != "Connection Offline. Waiting to Reconect") {
                         updateModal();
-                        console.log('New Version of Content Available. Refreshing. On Desktop Browsers a manual refresh maybe required.')
+                        console.log('[OHIOH]  New Version of Content Available. Refreshing. On Desktop Browsers a manual refresh maybe required.')
                         setTimeout(function () {
                             $('body').find('#menu-update').addClass('menu-active');
                             $('.menu-hider').addClass('menu-active-no-click');
@@ -238,84 +263,32 @@ $(function () {
         location.reload();
     });
 
-    //Check for Version Change if Online If not Kill the Function
-    if (navigator.onLine) {
-        check_version();
-    } else {
-        function check_version() {}
-    }
-
-    //Adding Offline Alerts
-    var offlineAlerts = $('.offline-message');
-
-    if (!offlineAlerts.length) {
-        $('body').append('<p class="offline-message bg-red2-dark color-white center-text uppercase ultrabold">No internet connection detected</p> ');
-        $('body').append('<p class="online-message bg-green1-dark color-white center-text uppercase ultrabold">You are back online</p>');
-    }
-
-    //Offline Function Show
-    function isOffline() {
-        $('.offline-message').addClass('offline-message-active');
-        $('.online-message').removeClass('online-message-active');
-        setTimeout(function () {
-            $('.offline-message').removeClass('offline-message-active');
-        }, 2000);
-    }
-
-    //Online Function Show
-    function isOnline() {
-        $('.online-message').addClass('online-message-active');
-        $('.offline-message').removeClass('offline-message-active');
-        setTimeout(function () {
-            $('.online-message').removeClass('online-message-active');
-        }, 2000);
-    }
-
-    $('.simulate-offline').on('click', function () {
-        isOffline();
-    })
-    $('.simulate-online').on('click', function () {
-        isOnline();
-    })
-
-    //Disable links to other pages if offline.
-    //Warning! Enabling offline for iOS can cause issues
-    //To allow offline functionality delete the next 7 lines
-    function returnFalse() {
-        var detectHREF = $(this).attr('href');
-        if (detectHREF.match(/.html/)) {
-            isOffline();
-            return false;
-        }
-    }
-
-    //Check if Online / Offline
-    function updateOnlineStatus(event) {
-        var condition = navigator.onLine ? "online" : "offline";
-        isOnline();
-        console.log('Connection: Online');
-        $("a").off("click", returnFalse);
-    }
-
-    function updateOfflineStatus(event) {
-        isOffline();
-        $("a").on("click", returnFalse);
-        console.log('Connection: Offline');
-    }
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOfflineStatus);
+    // //Check for Version Change if Online If not Kill the Function
+    // if (navigator.onLine) {
+    //     check_version();
+    // } else {
+    //     function check_version() {}
+    // }
 
 
-    if (pwaNoCache == true) {
-        caches.delete('workbox-runtime').then(function () {});
-        localStorage.clear();
-        sessionStorage.clear()
-        caches.keys().then(cacheNames => {
-            cacheNames.forEach(cacheName => {
-                caches.delete(cacheName);
-            });
-        });
-    }
+    // //Check if Online / Offline
+    // function updateOnlineStatus(event) {
+    //     var condition = navigator.onLine ? "online" : "offline";
+    //     isOnline();
+    //     console.log('[OHIOH] Connection: Online');
+    //     $("a").off("click", returnFalse);
+    // }
+
+    // function updateOfflineStatus(event) {
+    //     isOffline();
+    //     $("a").on("click", returnFalse);
+    //     console.log('[OHIOH] Connection: Offline');
+    // }
+    // // window.addEventListener('online', updateOnlineStatus);
+    // // window.addEventListener('offline', updateOfflineStatus);
+
+
+
 
 
 });
