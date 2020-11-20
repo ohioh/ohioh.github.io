@@ -5328,127 +5328,127 @@ code {
 }
 
 .bg-0 {
-    background-image: url(../src/images/pictures/1.png)
+    background-image: url(../images/pictures/1.png)
 }
 
 .bg-1 {
-    background-image: url(../src/images/pictures/1.png)
+    background-image: url(../images/pictures/1.png)
 }
 
 .bg-2 {
-    background-image: url(../src/images/pictures/2.png)
+    background-image: url(../images/pictures/2.png)
 }
 
 .bg-3 {
-    background-image: url(../src/images/pictures/3.png)
+    background-image: url(../images/pictures/3.png)
 }
 
 .bg-4 {
-    background-image: url(../src/images/pictures/4.png)
+    background-image: url(../images/pictures/4.png)
 }
 
 .bg-5 {
-    background-image: url(../src/images/pictures/5.png)
+    background-image: url(../images/pictures/5.png)
 }
 
 .bg-6 {
-    background-image: url(../src/images/pictures/6.png)
+    background-image: url(../images/pictures/6.png)
 }
 
 .bg-7 {
-    background-image: url(../src/images/pictures/7.png)
+    background-image: url(../images/pictures/7.png)
 }
 
 .bg-8 {
-    background-image: url(../src/images/pictures/8.png)
+    background-image: url(../images/pictures/8.png)
 }
 
 .bg-9 {
-    background-image: url(../src/images/pictures/9.png)
+    background-image: url(../images/pictures/9.png)
 }
 
 .bg-10 {
-    background-image: url(../src/images/pictures/10.png)
+    background-image: url(../images/pictures/10.png)
 }
 
 .bg-11 {
-    background-image: url(../src/images/pictures/11.png)
+    background-image: url(../images/pictures/11.png)
 }
 
 .bg-12 {
-    background-image: url(../src/images/pictures/12.png)
+    background-image: url(../images/pictures/12.png)
 }
 
 .bg-13 {
-    background-image: url(../src/images/pictures/13.png)
+    background-image: url(../images/pictures/13.png)
 }
 
 .bg-14 {
-    background-image: url(../src/images/pictures/14.png)
+    background-image: url(../images/pictures/14.png)
 }
 
 .bg-15 {
-    background-image: url(../src/images/pictures/15.png)
+    background-image: url(../images/pictures/15.png)
 }
 
 .bg-16 {
-    background-image: url(../src/images/pictures/16.png)
+    background-image: url(../images/pictures/16.png)
 }
 
 .bg-17 {
-    background-image: url(../src/images/pictures/17.png)
+    background-image: url(../images/pictures/17.png)
 }
 
 .bg-18 {
-    background-image: url(../src/images/pictures/18.png)
+    background-image: url(../images/pictures/18.png)
 }
 
 .bg-19 {
-    background-image: url(../src/images/pictures/19.png)
+    background-image: url(../images/pictures/20.png)
 }
 
 .bg-20 {
-    background-image: url(../src/images/pictures/20.pngg)
+    background-image: url(../images/pictures/20.png)
 }
 
 .bg-21 {
-    background-image: url(../src/images/pictures/21.png)
+    background-image: url(../images/pictures/21.png)
 }
 
 .bg-22 {
-    background-image: url(../src/images/pictures/22.png)
+    background-image: url(../images/pictures/22.png)
 }
 
 .bg-23 {
-    background-image: url(../src/images/pictures/23.png)
+    background-image: url(../images/pictures/23.png)
 }
 
 .bg-24 {
-    background-image: url(../src/images/pictures/24.png)
+    background-image: url(../images/pictures/24.png)
 }
 
 .bg-25 {
-    background-image: url(../src/images/pictures/25.png)
+    background-image: url(../images/pictures/25.png)
 }
 
 .bg-26 {
-    background-image: url(../src/images/pictures/26.png)
+    background-image: url(../images/pictures/26.png)
 }
 
 .bg-27 {
-    background-image: url(../src/images/pictures/27.png)
+    background-image: url(../images/pictures/27.png)
 }
 
 .bg-28 {
-    background-image: url(../src/images/pictures/21.png)
+    background-image: url(../images/pictures/21.png)
 }
 
 .bg-29 {
-    background-image: url(../src/images/pictures/29.png)
+    background-image: url(../images/pictures/29.png)
 }
 
 .bg-30 {
-    background-image: url(../src/images/pictures/30.png)
+    background-image: url(../images/pictures/30.png)
 }
 
 .demo-color {
@@ -5606,7 +5606,7 @@ html.lb-disable-scrolling {
     width: 32px;
     height: 32px;
     margin: 0 auto;
-    background: url(../images/loading.gif) no-repeat
+
 }
 
 .lb-nav {
@@ -5638,7 +5638,7 @@ html.lb-disable-scrolling {
     width: 34%;
     left: 0;
     float: left;
-    background: url(./images/prev.png) left 48% no-repeat;
+    background: url(../images/pictures/prev.png) left 48% no-repeat;
     filter: alpha(Opacity=0);
     opacity: 0;
     -webkit-transition: opacity .6s;
@@ -5656,7 +5656,7 @@ html.lb-disable-scrolling {
     width: 64%;
     right: 0;
     float: right;
-    background: url(../src/images/next.png) right 48% no-repeat;
+    background: url(../images/pictures/prev.png) right 48% no-repeat;
     filter: alpha(Opacity=0);
     opacity: 0;
     -webkit-transition: opacity .6s;
@@ -5710,7 +5710,6 @@ html.lb-disable-scrolling {
     float: right;
     width: 30px;
     height: 30px;
-    background: url(../src/images/close.png) top right no-repeat;
     text-align: right;
     outline: 0;
     filter: alpha(Opacity=70);

@@ -1,12 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="de">
 <head>
-	<% for (var chunk in htmlWebpackPlugin.files.css) { %>
-	<link rel="preload" href="<%= htmlWebpackPlugin.files.css[chunk] %>"  as="style">
-	<% } %>
-	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-	<link rel="preload" href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" as="script">
-	<% } %>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
 	<link rel="manifest" href="_manifest.json" data-pwa-version="1.0.0">
 	<link rel="apple-touch-icon" sizes="180x180" href="images/OHIOHicons/apple-icon-180x180.png">
-	<% preact.headEnd %>
 </head>
 
 <body class="theme-light" data-highlight="OHIOH">
@@ -36,18 +29,23 @@
         <a href="#" data-menu="menu-highlights" class="header-icon header-icon-3"><i class="fas fa-brush"></i></a>
     </div>
     <div id="footer-bar" class="footer-bar-5">
-        <a href="index-features.html" class="active-nav"><i data-feather="heart" data-feather-line="1" data-feather-size="21" data-feather-color="red2-dark" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
-        <a href="index-media.html"><i data-feather="image" data-feather-line="1" data-feather-size="21" data-feather-color="green1-dark" data-feather-bg="green1-fade-light"></i><span>Media</span></a>
-        <a href="index.html"><i data-feather="home" data-feather-line="1" data-feather-size="21" data-feather-color="blue2-dark" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
-        <a href="index-QR.html"><i data-feather="file" data-feather-line="1" data-feather-size="21" data-feather-color="brown1-dark" data-feather-bg="brown1-fade-light"></i><span>QR-Infos</span></a>
-        <a href="index-settings.html"><i data-feather="settings" data-feather-line="1" data-feather-size="21" data-feather-color="gray2-dark" data-feather-bg="gray2-fade-light"></i><span>Settings</span></a>
+        <a href="index-features.html"><i data-feather="heart" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
+        <a href="index-research.html"><i data-feather="bluetooth" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="green1-fade-light"></i><span>Research</span></a>
+        <a href="index.html" class="active-nav"><i data-feather="home" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
+        <a href="index-QR.html"><i data-feather="camera" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="brown1-fade-light"></i><span>QR-Infos</span></a>
+        <a href="index-settings.html"><i data-feather="settings" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="gray2-fade-light"></i><span>Settings</span></a>
     </div>
 
     <div class="page-content">
 
         <div class="page-title page-title-small">
             <h2><a href="#" data-back-button><i class="fa fa-arrow-left"></i></a>Your features:</h2>
-            <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img" data-src="images/avatars/11s.png"></a>
+            <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img" data-src=""></a>
         </div>
         <div class="card header-card shape-rounded" data-card-height="150">
             <div class="card-overlay bg-highlight opacity-95"></div>
@@ -205,14 +203,11 @@
          data-menu-active="nav-features"
          data-menu-effect="menu-over">
     </div>
-
-
 </div>
-
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
-<% preact.bodyEnd %>
+
 </body>
 </html>

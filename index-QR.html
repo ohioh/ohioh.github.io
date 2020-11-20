@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
 	<link rel="manifest" href="_manifest.json" data-pwa-version="1.0.0">
 	<link rel="apple-touch-icon" sizes="180x180" href="images/OHIOHicons/icon-192x192.png">
+
 	 <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 	<style>
 	#qrcontainer {
@@ -45,6 +46,8 @@
 	  background-color: white;
 	}
 	</style>
+
+
 </head>
 
 <body class="theme-light" data-highlight="OHIOH">
@@ -88,6 +91,7 @@
 
         <div class="row text-center mb-0">
             <div class="col-6 pr-2">
+
                 <div class="card card-style mr-0 mb-3">
                    <div id="qrcontainer">
       <div id="container">
@@ -107,6 +111,11 @@
     
 
     
+
+                <div id="reader" class="card card-style mr-0 mb-3">
+                    <div id="qr-reader" style="width:100%"></div>
+			<div id="qr-reader-results"></div>
+
                 </div>
             </div>
             <a href="index-QR.html" class="col-6 pl-2">
@@ -262,11 +271,30 @@
 
 </div>
 
-
+<script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+
 <script type="text/javascript" src="js/qrCodeScanner.js"></script>
 
+
+<script>
+var resultContainer = document.getElementById('qr-reader-results');
+var lastResult, countResults = 0;
+
+function onScanSuccess(qrCodeMessage) {
+    if (qrCodeMessage !== lastResult) {
+        ++countResults;
+        lastResult = qrCodeMessage;
+        resultContainer.innerHTML 
+            += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
+    }
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "qr-reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess);
+</script>
 </body>
 </html>
