@@ -1,11 +1,10 @@
-var PRECACHE_STATICCACHE = 'ohiohCache-static';
-var DYNAMICCACHE = 'ohiohCache-dynamic';
-var RUNTIME_STATICCACHE = 'ohiohCache-runtime';
+var PRECACHESTATICCACHE = 'OHIOHCache-static';
+var DYNAMICCACHE = 'OHIOHCache-dynamic';
+var RUNTIMESTATICCACHE = 'ohiohCache-runtime';
 
 const PRECACHE_URLS = [
   './',
   '.',
-  'styles.css',
   '../assets/styles/main.css',
   '../assets/styles/style.css',
   '../assets/js/bootstrap.min.js',
