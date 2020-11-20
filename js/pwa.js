@@ -21,15 +21,15 @@
 let PRECACHE = 'OHIOHCache-static';
 
 
-$(document).ready(function () {
-    'use strict'
-    navigator.serviceWorker.getRegistrations()
-        .then(function(registrations) {
-            for(let registration of registrations) {
-                registration.unregister();
-            }
-        });
-})
+// $(document).ready(function () {
+//     'use strict'
+//     navigator.serviceWorker.getRegistrations()
+//         .then(function(registrations) {
+//             for(let registration of registrations) {
+//                 registration.unregister();
+//             }
+//         });
+// })
 
 
 if ('serviceWorker' in navigator) {
