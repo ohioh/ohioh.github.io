@@ -5,9 +5,9 @@ let RUNTIMECACHE = 'OHIOHCache-runtime';
 const PRECACHE_URLS = [
   './',
   '.',
-  '../assets/styles/main.css',
-  '../assets/styles/style.css',
-  '../assets/js/bootstrap.min.js',
+  '../style/main.css',
+  '../style/style.css',
+  '../js/bootstrap.min.js',
   '../js/custom.js',
   '../js/pwa.js',
   '../js/jquery.js',
