@@ -283,11 +283,11 @@ var fruits = [];
       
     //  if(event.device.name == 'Ohioh')
     //  {
-         log('devices list  ' + devices);
+      //   log('devices list  ' + devices);
       if ( event.device.name != null)
       {
         function checkAdult(device) {
-          log('||' + typeof device+'|'+ typeof event.uuids+"||");
+        //  log('||' + typeof device+'|'+ typeof event.uuids+"||");
             return device+" " == event.uuids+" ";
           }
           if(devices.find(checkAdult))
