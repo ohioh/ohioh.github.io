@@ -1,6 +1,6 @@
-var PRECACHE = 'OHIOHCache-static';
-var DYNAMICCACHE = 'OHIOHCache-dynamic';
-var RUNTIMECACHE = 'OHIOHCache-runtime';
+let PRECACHE = 'OHIOHCache-static';
+let DYNAMICCACHE = 'OHIOHCache-dynamic';
+let RUNTIMECACHE = 'OHIOHCache-runtime';
 
 const PRECACHE_URLS = [
   './',
@@ -80,24 +80,28 @@ self.addEventListener('activate', event => {
 // The fetch handler serves responses for same-origin resources from a cache.
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
-self.addEventListener('fetch', event => {
-  // Skip cross-origin requests, like those for Google Analytics.
-  if (event.request.url.startsWith(self.location.origin)) {
-    event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-
-        return caches.open(RUNTIMECACHE).then(cache => {
-          return fetch(event.request).then(response => {
-            // Put a copy of the response in the runtime cache.
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
+addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response;     // if valid response is found in cache return it
+        } else {
+          return fetch(event.request)     //fetch from internet
+            .then(function(res) {
+              return caches.open(PRECACHE)
+                .then(function(cache) {
+                  cache.put(event.request.url, res.clone());    //save the response for future
+                  return res;   // return the fetched data
+                })
+            })
+            .catch(function(err) {       // fallback mechanism
+              return caches.open(CACHE_CONTAINING_ERROR_MESSAGES)
+                .then(function(cache) {
+                  return cache.match('../pages/offline.html');
+                });
             });
-          });
-        });
+        }
       })
-    );
-  }
+  );
 });
