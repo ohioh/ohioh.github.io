@@ -19,19 +19,21 @@
 //     console.warn("[OHIOH] ServiceWorker not avaible");
 // }
 let PRECACHE = 'OHIOHCache-static';
-let swInstalled = false;
 
-if ('serviceWorker' in navigator) {
-    if( swInstalled == false) {
+
+$(document).ready(function () {
+    'use strict'
     navigator.serviceWorker.getRegistrations()
         .then(function(registrations) {
             for(let registration of registrations) {
-               if(registration.active.scriptURL == 'http://localhost/my-push/myworker.js'){ registration.unregister(); }
-               swInstalled == true;
-               return swInstalled;
+                registration.unregister();
             }
         });
-    } else {
+})
+
+
+if ('serviceWorker' in navigator) {
+
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('/sw.js').then(function(registration) {
         // Registration was successful
@@ -42,7 +44,7 @@ if ('serviceWorker' in navigator) {
         console.log('[OHIOH] ServiceWorker registration failed: ', err);
       });
     });
-    }
+
   }
 
 
