@@ -41,8 +41,7 @@ const PRECACHE_URLS = [
   '/system-status.html',
   '/userdata.html',
   '/welcome.html',
-  '/sw.js'
-];
+  ];
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
