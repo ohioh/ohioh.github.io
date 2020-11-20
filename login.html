@@ -21,7 +21,36 @@
         <link rel="manifest" href="/_manifest.json" data-pwa-version="1.0.1">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 
-      
+        <script> 
+           var url = 'http://195.201.35.222:3000/login?email=Mbadhon@gmail.com&password=badhon'
+           function submitInfo(){
+    
+    let form = document.forms["myForm"];
+    let fd = new FormData(form);
+    let data = {};
+    for (let [key, prop] of fd) {
+      data[key] = prop;
+    }
+    VALUE = JSON.stringify(data, null, 2);
+    console.log(VALUE);
+
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    fetch('http://195.201.35.222:3000/login', {
+        method: 'POST',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default',
+        body: VALUE
+    })
+    .then(data => data.json())
+    .then(data =>  { console.log(data) }) 
+    .catch((err) => {
+        console.error(err);
+    })
+}
+        </script>
     </head>
 
 <body class="theme-light" data-highlight="blue2">
@@ -64,7 +93,7 @@
             <div class="card-overlay dark-mode-tint"></div>
             <div class="card-bg preload-img" data-src=""></div>
         </div>
-  <script> 
+     <script> 
            var url = 'http://195.201.35.222:3000/login?email=Mbadhon@gmail.com&password=badhon'
            function submitInfo(){
     
@@ -76,11 +105,11 @@
     }
     VALUE = JSON.stringify(data, null, 2);
     console.log(VALUE);
-alert("Hello! I am an alert box!!");
+
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    fetch('https://app.ohioh.de:8443/signup', {
+    fetch('http://195.201.35.222:3000/login', {
         method: 'POST',
         headers: myHeaders,
         mode: 'cors',
@@ -88,12 +117,7 @@ alert("Hello! I am an alert box!!");
         body: VALUE
     })
     .then(data => data.json())
-    .then(data =>  { 
-                   console.log(data) 
-                    
-                   window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
-                    
-                   }) 
+    .then(data =>  { console.log(data) }) 
     .catch((err) => {
         console.error(err);
     })
@@ -105,18 +129,11 @@ alert("Hello! I am an alert box!!");
 
 
                 <form id="myForm" name="myForm" method="POST">
-                  
                     <div>
                         <input type="text" id="email" name="email" value="example@gmail.com">
                     </div>
                     <div>
                         <input type="password" id="password" name="password" value="123">
-                    </div>
-                    <div>
-                        <input type="text" id="name" name="name" value="name">
-                    </div>
-                    <div>
-                        <input type="text" id="infecteddate" name="infecteddate" value="phone">
                     </div>
                         <input type="button" value="Submit!" onclick="submitInfo()">
                 </form>
