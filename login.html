@@ -117,7 +117,10 @@
         body: VALUE
     })
     .then(data => data.json())
-    .then(data =>  { console.log(data) }) 
+    .then(data =>  { console.log(data)
+                   window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
+                    alert("Congrats you are successfully logged in");
+                   }) 
     .catch((err) => {
         console.error(err);
     })
