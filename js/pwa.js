@@ -1,24 +1,35 @@
 //Loading the Service Worker
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-        //then register  ServiceWorker
-        navigator.serviceWorker.register('../sw.js', {scope: "./"})
-        .then(function(reg) {
-            if(reg.installing) {
-                console.log('[OHIOH] Service worker installing');
-              } else if(reg.waiting) {
-                console.log('[OHIOH] Service worker installed');
-              } else if(reg.active) {
-                console.log('[OHIOH] Service worker active');
-              }
-        }).catch(function(error) {
-            console.log("[OHIOH] ServiceWorker Error:)" + error);
-        })
-    })
-} else {
-    console.warn("[OHIOH] ServiceWorker not avaible");
-}
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', function () {
+//         //then register  ServiceWorker
+//         navigator.serviceWorker.register('../sw.js', {scope: "./"})
+//         .then(function(reg) {
+//             if(reg.installing) {
+//                 console.log('[OHIOH] Service worker installing');
+//               } else if(reg.waiting) {
+//                 console.log('[OHIOH] Service worker installed');
+//               } else if(reg.active) {
+//                 console.log('[OHIOH] Service worker active');
+//               }
+//         }).catch(function(error) {
+//             console.log("[OHIOH] ServiceWorker Error:)" + error);
+//         })
+//     })
+// } else {
+//     console.warn("[OHIOH] ServiceWorker not avaible");
+// }
 
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
 
 
 
