@@ -18,6 +18,8 @@
 // } else {
 //     console.warn("[OHIOH] ServiceWorker not avaible");
 // }
+let PRECACHE = 'OHIOHCache-static';
+
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -176,10 +178,10 @@ $(document).ready(function () {
             $('.page-update').html('Updating in ... ' + counter + ' seconds');
             if (counter == 0) {
                 clearInterval(interval);
-                window.location.reload(true)
+                window.location.reload()
             }
         }, 1000);
-        caches.delete('workbox-runtime').then(function () {
+        caches.delete(PRECACHE).then(function () {
             console.log('[OHIOH] Content Updated - Cache Removed!');
         });
         localStorage.clear();
@@ -247,12 +249,12 @@ $(document).ready(function () {
         location.reload();
     });
 
-    //Check for Version Change if Online If not Kill the Function
-    if (navigator.onLine) {
-        check_version();
-    } else {
-        function check_version() {}
-    }
+    // //Check for Version Change if Online If not Kill the Function
+    // if (navigator.onLine) {
+    //     check_version();
+    // } else {
+    //     function check_version() {}
+    // }
 
 
     // //Check if Online / Offline
