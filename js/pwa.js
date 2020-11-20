@@ -256,49 +256,6 @@ $(document).ready(function () {
         function check_version() {}
     }
 
-    //Adding Offline Alerts
-    var offlineAlerts = $('.offline-message');
-
-    if (!offlineAlerts.length) {
-        $('body').append('<p class="offline-message bg-red2-dark color-white center-text uppercase ultrabold">No internet connection detected</p> ');
-        $('body').append('<p class="online-message bg-green1-dark color-white center-text uppercase ultrabold">You are back online</p>');
-    }
-
-    //Offline Function Show
-    function isOffline() {
-        $('.offline-message').addClass('offline-message-active');
-        $('.online-message').removeClass('online-message-active');
-        setTimeout(function () {
-            $('.offline-message').removeClass('offline-message-active');
-        }, 2000);
-    }
-
-    //Online Function Show
-    function isOnline() {
-        $('.online-message').addClass('online-message-active');
-        $('.offline-message').removeClass('offline-message-active');
-        setTimeout(function () {
-            $('.online-message').removeClass('online-message-active');
-        }, 2000);
-    }
-
-    $('.simulate-offline').on('click', function () {
-        isOffline();
-    })
-    $('.simulate-online').on('click', function () {
-        isOnline();
-    })
-
-    //Disable links to other pages if offline.
-    //Warning! Enabling offline for iOS can cause issues
-    //To allow offline functionality delete the next 7 lines
-    function returnFalse() {
-        var detectHREF = $(this).attr('href');
-        if (detectHREF.match(/.html/)) {
-            isOffline();
-            return false;
-        }
-    }
 
     //Check if Online / Offline
     function updateOnlineStatus(event) {
