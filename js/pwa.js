@@ -27,6 +27,8 @@ if ('serviceWorker' in navigator) {
         .then(function(registrations) {
             for(let registration of registrations) {
                if(registration.active.scriptURL == 'http://localhost/my-push/myworker.js'){ registration.unregister(); }
+               swInstalled == true;
+               return swInstalled;
             }
         });
     } else {
