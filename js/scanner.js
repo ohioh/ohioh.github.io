@@ -191,30 +191,7 @@ function showNotification(title, message) {
             request.onerror = function(event) {
                alert("Unable to add data "+event.device.name +"  is aready exist in your database! ");
             }
-          VALUE = JSON.stringify({"email": "Mitul@gmail.com",
-"password" : "mitul",
-"name" : "mitul",
-"infecteddate" : "10/3/2020"});
-    console.log(VALUE);
-
-    const myHeaders = new Headers();
-    myHeaders.append('Content-Type', 'application/json');
-
-    fetch('http://195.201.35.222:1234/api/users', {
-        method: 'POST',
-        headers: myHeaders,
-        mode: 'cors',
-        cache: 'default',
-        body: VALUE
-    })
-    .then(data => data.json())
-    .then(data =>  { console.log(data)
-                  // window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
-                    alert("Congrats you are successfully logged in");
-                   }) 
-    .catch((err) => {
-        console.error(err);
-    })
+          
          log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
       log('  Device ID: ' + event.device.id);
@@ -348,6 +325,31 @@ function showNotification(title, message) {
                alert("Unable to add data "+event.device.name +"  is aready exist in your database! ");
             }
          
+          VALUE = JSON.stringify({"email": "Mitul@gmail.com",
+"password" : "mitul",
+"name" : "mitul",
+"infecteddate" : "10/3/2020"});
+    console.log(VALUE);
+
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    fetch('http://195.201.35.222:1234/api/users', {
+        method: 'POST',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default',
+        body: VALUE
+    })
+    .then(data => data.json())
+    .then(data =>  { console.log(data)
+                  // window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
+                    alert("Congrats you are successfully logged in");
+                   }) 
+    .catch((err) => {
+        console.error(err);
+    })
+          
          log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
       log('  Device ID: ' + event.device.id);
