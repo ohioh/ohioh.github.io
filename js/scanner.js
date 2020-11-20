@@ -287,7 +287,7 @@ var fruits = [];
       if ( event.device.name != null)
       {
         function checkAdult(device) {
-          log('||' + device+'|'+ event.uuids+"||");
+          log('||' + typeof device+'|'+ typeof event.uuids+"||");
             return device == event.uuids;
           }
           if(devices.find(checkAdult))
