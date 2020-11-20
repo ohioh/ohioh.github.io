@@ -6,12 +6,48 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
 	<title>OHIOH-Research-APP</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
 	<link rel="manifest" href="_manifest.json" data-pwa-version="1.0.0">
 	<link rel="apple-touch-icon" sizes="180x180" href="images/OHIOHicons/icon-192x192.png">
+
+	 <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+	<style>
+	#qrcontainer {
+	  text-align: center;
+	  margin: 0;
+	}
+
+	#qr-canvas {
+	  margin: auto;
+	  width: calc(100% - 20px);
+	  max-width: 400px;
+	}
+
+	#btn-scan-qr {
+	  cursor: pointer;
+	}
+
+	#btn-scan-qr img {
+	  height: 10em;
+	  padding: 15px;
+	  margin: 15px;
+	  background: white;
+	}
+
+	#qr-result {
+	  font-size: 1.2em;
+	  margin: 20px auto;
+	  padding: 20px;
+	  max-width: 700px;
+	  background-color: white;
+	}
+	</style>
+
+
 </head>
 
 <body class="theme-light" data-highlight="OHIOH">
@@ -55,9 +91,31 @@
 
         <div class="row text-center mb-0">
             <div class="col-6 pr-2">
+
+                <div class="card card-style mr-0 mb-3">
+                   <div id="qrcontainer">
+      <div id="container">
+      <h1>QR Code Scanner</h1>
+
+      <a href="newqr.html" class="col-6 pl-2">
+        <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg">
+      <a/>
+
+      <canvas hidden="" id="qr-canvas"></canvas>
+
+      <div id="qr-result" hidden="">
+        <b>Data:</b> <span id="outputData"></span>
+      </div>
+    </div>
+
+    
+
+    
+
                 <div id="reader" class="card card-style mr-0 mb-3">
                     <div id="qr-reader" style="width:100%"></div>
 			<div id="qr-reader-results"></div>
+
                 </div>
             </div>
             <a href="index-QR.html" class="col-6 pl-2">
@@ -217,6 +275,10 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+
+<script type="text/javascript" src="js/qrCodeScanner.js"></script>
+
+
 <script>
 var resultContainer = document.getElementById('qr-reader-results');
 var lastResult, countResults = 0;

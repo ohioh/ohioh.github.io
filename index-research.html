@@ -2,6 +2,400 @@
 <!DOCTYPE HTML>
 <html lang="de">
 <head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+	<title>OHIOH-Research</title>
+	 <script async="" src="./Web Bluetooth _ Scanning Sample_files/analytics.js.Download"></script><script>
+      // Add a global error event listener early on in the page load, to help ensure that browsers
+      // which don't support specific functionality still end up displaying a meaningful message.
+      window.addEventListener('error', function(error) {
+        if (ChromeSamples && ChromeSamples.setStatus) {
+          console.error(error);
+          ChromeSamples.setStatus(error.message + ' (Your browser may not support this feature.)');
+          error.preventDefault();
+        }
+      });
+    </script>
+	<link rel="stylesheet" type="text/css" href="/style/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/fonts/css/fontawesome-all.min.css">
+	<link rel="manifest" href="_manifest.json" data-pwa-version="1.0.1">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/Icon-apple-180.png">
+	<% preact.headEnd %>
+</head>
+
+<body class="theme-light" data-highlight="OHIOH">
+
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+
+<div id="page">
+
+    <!-- header and footer bar go here-->
+    <div class="header header-fixed header-auto-show header-logo-app">
+        <a href="index.html" class="header-title">OHIOH Research</a>
+        <a href="#" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-2 show-on-theme-dark"><i class="fas fa-sun"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-2 show-on-theme-light"><i class="fas fa-moon"></i></a>
+        <a href="#" data-menu="menu-highlights" class="header-icon header-icon-3"><i class="fas fa-brush"></i></a>
+    </div>
+    <div id="footer-bar" class="footer-bar-5">
+        <a href="index-features.html"><i data-feather="heart" data-feather-line="1" data-feather-size="21" data-feather-color="red2-dark" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
+        <a href="index-research.html" class="active-nav"><i data-feather="image" data-feather-line="1" data-feather-size="21" data-feather-color="green1-dark" data-feather-bg="green1-fade-light"></i><span>Research</span></a>
+        <a href="index.html"><i data-feather="home" data-feather-line="1" data-feather-size="21" data-feather-color="blue2-dark" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
+        <a href="index-QR.html"><i data-feather="file" data-feather-line="1" data-feather-size="21" data-feather-color="brown1-dark" data-feather-bg="brown1-fade-light"></i><span>QR-Infos</span></a>
+        <a href="index-settings.html"><i data-feather="settings" data-feather-line="1" data-feather-size="21" data-feather-color="gray2-dark" data-feather-bg="gray2-fade-light"></i><span>Settings</span></a>
+    </div>
+
+    <div class="page-content">
+
+        <div class="page-title page-title-small">
+            <h2><a href="#" data-back-button><i class="fa fa-arrow-left"></i></a>Research</h2>
+            <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img" data-src="images/avatars/11l.png"></a>
+        </div>
+        <div class="card header-card shape-rounded" data-card-height="150">
+            <div class="card-overlay bg-highlight opacity-95"></div>
+            <div class="card-overlay dark-mode-tint"></div>
+            <div class="card-bg preload-img" data-src="images/pictures/20.png"></div>
+        </div>
+
+        <div class="card card-style">
+            <div class="content">
+                Research Fotos... no reading: See us in action
+            </div>
+        </div>
+
+
+        <a href="index-features.html" data-card-height="120" class="card card-style mb-3">
+            <div class="card-center pl-3 ml-2">
+                <i data-feather="camera"
+                   data-feather-line="1"
+                   data-feather-size="50"
+                   data-feather-color="blue2-dark"
+                   data-feather-bg="blue2-fade-light">
+                </i>
+            </div>
+            <div class="card-center pl-5 ml-5">
+                <h4 class="pl-2">Galleries</h4>
+                <p class="pl-2 mt-n2 font-12 color-highlight mb-0">Images  from OHIOH-Research</p>
+            </div>
+            <div class="card-center opacity-30">
+                <i class="fa fa-arrow-right opacity-50 float-right color-theme pr-3"></i>
+            </div>
+        </a>
+
+        <a href="index-features.html" data-card-height="120" class="card card-style mb-3">
+            <div class="card-center pl-3 ml-2">
+                <i data-feather="image"
+                   data-feather-line="1"
+                   data-feather-size="50"
+                   data-feather-color="green1-dark"
+                   data-feather-bg="green1-fade-light">
+                </i>
+            </div>
+            <div class="card-center pl-5 ml-5">
+                <h4 class="pl-2">Research-Projects</h4>
+                <p class="pl-2 mt-n2 font-12 color-highlight mb-0">To the projects</p>
+            </div>
+            <div class="card-center opacity-30">
+                <i class="fa fa-arrow-right opacity-50 float-right color-theme pr-3"></i>
+            </div>
+        </a>
+
+        <a href="index-features.html" data-card-height="120" class="card card-style">
+            <div class="card-center pl-3 ml-2">
+                <i data-feather="zap"
+                   data-feather-line="1"
+                   data-feather-size="50"
+                   data-feather-color="yellow1-dark"
+                   data-feather-bg="yellow1-fade-light">
+                </i>
+            </div>
+            <div class="card-center pl-5 ml-5">
+                <h4 class="pl-2">social media</h4>
+                <p class="pl-2 mt-n2 font-12 color-highlight mb-0">Instagram, Facebook, Twitter && Co</p>
+            </div>
+            <div class="card-center opacity-30">
+                <i class="fa fa-arrow-right opacity-50 float-right color-theme pr-3"></i>
+            </div>
+        </a>
+
+        <div class="card card-style">
+            <div class="content">
+                <h5>Tracing App</h5>
+                <i class="material-icons" style="font-size:48px;color:red">bluetooth</i>
+    <h1>Ohioh Bluetooth  Scanning </h1>
+  
+
+<script>
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    const searchParams = new URL(location).searchParams;
+    const inputs = Array.from(document.querySelectorAll('input[id]'));
+
+    inputs.forEach(input => {
+      if (searchParams.has(input.id)) {
+        if (input.type == 'checkbox') {
+          input.checked = searchParams.get(input.id);
+        } else {
+          input.value = searchParams.get(input.id);
+          input.blur();
+        }
+      }
+      if (input.type == 'checkbox') {
+        input.addEventListener('change', function(event) {
+          const newSearchParams = new URL(location).searchParams;
+          if (event.target.checked) {
+            newSearchParams.set(input.id, event.target.checked);
+          } else {
+            newSearchParams.delete(input.id);
+          }
+          history.replaceState({}, '', Array.from(newSearchParams).length ?
+              location.pathname + '?' + newSearchParams : location.pathname);
+        });
+      } else {
+        input.addEventListener('input', function(event) {
+          const newSearchParams = new URL(location).searchParams;
+          if (event.target.value) {
+            newSearchParams.set(input.id, event.target.value);
+          } else {
+            newSearchParams.delete(input.id);
+          }
+          history.replaceState({}, '', Array.from(newSearchParams).length ?
+              location.pathname + '?' + newSearchParams : location.pathname);
+        });
+      }
+    });
+  });
+</script>
+
+
+
+
+<p>Note: Scanning is still under development. You must be using Chrome 79+
+with the <code>chrome://flags/#enable-experimental-web-platform-features</code>
+flag enabled.</p>
+
+<form>
+
+  <button class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">Start Scanning</button>
+</form>
+
+<script>
+  var ChromeSamples = {
+    log: function() {
+      var line = Array.prototype.slice.call(arguments).map(function(argument) {
+        return typeof argument === 'string' ? argument : JSON.stringify(argument);
+      }).join(' ');
+
+      document.querySelector('#log').textContent += line + '\n';
+    },
+
+    clearLog: function() {
+      document.querySelector('#log').textContent = '';
+    },
+
+    setStatus: function(status) {
+      document.querySelector('#status').textContent = status;
+    },
+
+    setContent: function(newContent) {
+      var content = document.querySelector('#content');
+      while(content.hasChildNodes()) {
+        content.removeChild(content.lastChild);
+      }
+      content.appendChild(newContent);
+    }
+  };
+</script>
+
+<h3>Live Output</h3>
+<div id="output" class="output">
+  <div id="content"></div>
+  <div id="status"></div>
+  <pre id="log"></pre>
+</div>
+
+
+<script>
+  if (/Chrome\/(\d+\.\d+.\d+.\d+)/.test(navigator.userAgent)){
+    // Let's log a warning if the sample is not supposed to execute on this
+    // version of Chrome.
+    if (79 > parseInt(RegExp.$1)) {
+      ChromeSamples.setStatus('Warning! Keep in mind this sample has been tested with Chrome ' + 79 + '.');
+    }
+  }
+</script>
+
+
+
+
+  
+    
+      <script>async function onButtonClick() {
+  
+
+  let options = {};
+  options.acceptAllAdvertisements = true;
+  
+   try {
+    log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
+    const scan = await navigator.bluetooth.requestLEScan(options);
+
+    log('Scan started with:');
+    log(' acceptAllAdvertisements: ' + scan.acceptAllAdvertisements);
+    log(' active: ' + scan.active);
+    log(' keepRepeatedDevices: ' + scan.keepRepeatedDevices);
+    log(' filters: ' + JSON.stringify(scan.filters));
+
+
+
+    setTimeout(stopScan, 5000);
+    function stopScan() {
+    //  log('Stopping scan...');
+     // scan.stop();
+    //  log('Stopped.  scan.active = ' + scan.active);
+    }
+ 
+
+    navigator.bluetooth.addEventListener('advertisementreceived', event => {
+      log('Advertisement received.');
+      log('  Device Name: ' + event.device.name);
+      log('  Device ID: ' + event.device.id);
+      log('  RSSI: ' + event.rssi);
+      log('  TX Power: ' + event.txPower);
+      log('  UUIDs: ' + event.uuids);
+      event.manufacturerData.forEach((valueDataView, key) => {
+        logDataView('Manufacturer', key, valueDataView);
+      });
+      event.serviceData.forEach((valueDataView, key) => {
+        logDataView('Service', key, valueDataView);
+      });
+    });
+
+    
+  } catch(error)  {
+    log('Argh! ' + error);
+  }
+}
+
+/* Utils */
+
+const logDataView = (labelOfDataSource, key, valueDataView) => {
+  const hexString = [...new Uint8Array(valueDataView.buffer)].map(b => {
+    return b.toString(16).padStart(2, '0');
+  }).join(' ');
+  const textDecoder = new TextDecoder('ascii');
+  const asciiString = textDecoder.decode(valueDataView.buffer);
+  log(`  ${labelOfDataSource} Data: ` + key +
+      '\n    (Hex) ' + hexString +
+      '\n    (ASCII) ' + asciiString);
+};
+</script>
+    
+  
+
+  
+  
+  
+
+
+
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    if (isWebBluetoothEnabled()) {
+      ChromeSamples.clearLog();
+      onButtonClick();
+    }
+  });
+</script>
+
+<script>
+  log = ChromeSamples.log;
+
+  function isWebBluetoothEnabled() {
+    if (navigator.bluetooth) {
+      return true;
+    } else {
+      ChromeSamples.setStatus('Web Bluetooth API is not available.\n' +
+          'Please make sure the "Experimental Web Platform features" flag is enabled.');
+      return false;
+    }
+  }
+</script>
+
+
+    
+    <script>
+      /* jshint ignore:start */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-53563471-1', 'auto');
+      ga('send', 'pageview');
+      /* jshint ignore:end */
+    </script>
+
+            </div>
+        </div>
+
+        <!-- footer and footer card-->
+        <div class="footer" data-menu-load="menu-footer.html"></div>
+    </div>
+    <!-- end of page content-->
+
+
+    <div id="menu-share"
+         class="menu menu-box-bottom menu-box-detached rounded-m"
+         data-menu-load="menu-share.html"
+         data-menu-height="420"
+         data-menu-effect="menu-over">
+    </div>
+
+    <div id="menu-highlights"
+         class="menu menu-box-bottom menu-box-detached rounded-m"
+         data-menu-load="menu-colors.html"
+         data-menu-height="510"
+         data-menu-effect="menu-over">
+    </div>
+
+    <div id="menu-main"
+         class="menu menu-box-right menu-box-detached rounded-m"
+         data-menu-width="260"
+         data-menu-load="menu-main.html"
+         data-menu-active="nav-media"
+         data-menu-effect="menu-over">
+    </div>
+
+
+
+
+</div>
+
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<% preact.bodyEnd %>
+</body>
+</html>
+=======
+
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
