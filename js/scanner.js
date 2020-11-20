@@ -334,7 +334,7 @@ function showNotification(title, message) {
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    fetch('http://195.201.35.222:1234/api/users', {
+    fetch('https://ohioh.app:8442/api/users', {
         method: 'POST',
         headers: myHeaders,
         mode: 'cors',
