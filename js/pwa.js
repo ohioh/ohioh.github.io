@@ -270,8 +270,8 @@ $(document).ready(function () {
         $("a").on("click", returnFalse);
         console.log('[OHIOH] Connection: Offline');
     }
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOfflineStatus);
+    // window.addEventListener('online', updateOnlineStatus);
+    // window.addEventListener('offline', updateOfflineStatus);
 
 
     if (pwaNoCache == true) {
