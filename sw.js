@@ -8,20 +8,9 @@ const PRECACHE_URLS = [
   '../assets/styles/main.css',
   '../assets/styles/style.css',
   '../assets/js/bootstrap.min.js',
-  '../assets/js/custom.js',
-  '../assets/js/pwa.js',
-  '../assets/js/jquery.js',
-  '/assets/',
-  '/components/',
-  '/fonts/',
-  '/icons/',
-  '/js/',
-  '/pages/',
-  '/php/',
-  '/routes/',
-  '/scss/',
-  '/style/',
-  '/views/',
+  '../js/custom.js',
+  '../js/pwa.js',
+  '../js/jquery.js',
   '/index.html',
   '/index.sass',
   '/index.js',
@@ -30,7 +19,7 @@ const PRECACHE_URLS = [
   '/contact.html',
   '/faq.html',
   '/file-upload.html',
-  '/geolocation.html',
+  '/geo-location.html',
   '/index-features.html',
   '/index-QR.html',
   '/index-research.html',
@@ -51,7 +40,8 @@ const PRECACHE_URLS = [
   '/survey.html',
   '/system-status.html',
   '/userdata.html',
-  '/welcome.html'
+  '/welcome.html',
+  '/sw.js'
 ];
 
 // The install handler takes care of precaching the resources we always need.
