@@ -156,13 +156,26 @@
     }
  
 
+     var devices = [];
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
+      
     //  if(event.device.name == 'Ohioh')
     //  {
+      //   log('devices list  ' + devices);
       if ( event.device.name != null)
       {
-        
-        if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
+        function checkAdult(device) {
+        //  log('||' + typeof device+'|'+ typeof event.uuids+"||");
+            return device+" " == event.uuids+" ";
+          }
+          if(devices.find(checkAdult))
+{
+//log("hhhhhhhhhhhhh");
+}
+else{
+
+devices.push(event.uuids);
+    if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
         {
           Notification.requestPermission(result => {
   if (result === 'granted') {
@@ -191,16 +204,48 @@ function showNotification(title, message) {
             request.onerror = function(event) {
                alert("Unable to add data "+event.device.name +"  is aready exist in your database! ");
             }
+         
+          VALUE = JSON.stringify({
+          
+          "email": "Mitul@gmail.com",
+      "uuid": event.uuids+" ",
+"rssi": event.rssi+" ",
+"devicename": event.device.name,
+            "txpower" : event.txPower+" "
+          });
+    console.log(VALUE);
+
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    fetch('https://ohioh.app:8442/api/users', {
+        method: 'POST',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default',
+        body: VALUE
+    })
+    .then(data => data.json())
+    .then(data =>  { console.log(data)
+                  // window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
+                 //   alert("Congrats you are successfully logged in");
+                   }) 
+    .catch((err) => {
+        console.error(err);
+    })
           
          log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
       log('  Device ID: ' + event.device.id);
       log('  RSSI: ' + event.rssi);
       log('  TX Power: ' + event.txPower);
+          
       log('  UUIDs: ' + event.uuids);
            log('  Time: ' +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString());
      
       }
+}
+        
       
       }
     //  }
