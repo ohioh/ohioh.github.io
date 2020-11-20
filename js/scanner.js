@@ -328,8 +328,8 @@ function showNotification(title, message) {
           VALUE = JSON.stringify({
           
           "email": "Mitul@gmail.com",
-      "uuid": event.uuids,
-"rssi": event.rssi,
+      "uuid": event.uuids+" ",
+"rssi": event.rssi+" ",
 "devicename": event.device.name
           });
     console.log(VALUE);
