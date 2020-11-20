@@ -358,6 +358,7 @@ function showNotification(title, message) {
       log('  Device ID: ' + event.device.id);
       log('  RSSI: ' + event.rssi);
       log('  TX Power: ' + event.txPower);
+          log('  RX Power: ' + event.rxPower);
       log('  UUIDs: ' + event.uuids);
            log('  Time: ' +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString());
      
