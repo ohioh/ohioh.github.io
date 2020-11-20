@@ -3,14 +3,12 @@ let DYNAMICCACHE = 'OHIOHCache-dynamic';
 let RUNTIMECACHE = 'OHIOHCache-runtime';
 
 const PRECACHE_URLS = [
-  './',
-  '.',
-  '../style/main.css',
-  '../style/style.css',
-  '../js/bootstrap.min.js',
-  '../js/custom.js',
-  '../js/pwa.js',
-  '../js/jquery.js',
+  '/style/main.css',
+  '/style/style.css',
+  '/js/bootstrap.min.js',
+  '/js/custom.js',
+  '/js/pwa.js',
+  '/js/jquery.js',
   '/index.html',
   '/index.sass',
   '/index.js',
