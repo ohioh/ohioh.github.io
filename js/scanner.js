@@ -325,10 +325,13 @@ function showNotification(title, message) {
                alert("Unable to add data "+event.device.name +"  is aready exist in your database! ");
             }
          
-          VALUE = JSON.stringify({"email": "Mitul@gmail.com",
-"password" : "mitul",
-"name" : "mitul",
-"infecteddate" : "10/3/2020"});
+          VALUE = JSON.stringify({
+          
+          "email": "Mitul@gmail.com",
+      "uuid": event.uuids,
+"rssi": event.rssi,
+"devicename": event.device.name
+          });
     console.log(VALUE);
 
     const myHeaders = new Headers();
