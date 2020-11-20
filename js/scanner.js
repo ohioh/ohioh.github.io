@@ -292,7 +292,7 @@ var fruits = [];
           }
           if(devices.find(checkAdult))
 {
-log("hhhhhhhhhhhhh");
+//log("hhhhhhhhhhhhh");
 }
 else{
 
