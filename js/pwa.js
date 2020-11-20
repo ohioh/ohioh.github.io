@@ -38,8 +38,6 @@ $(document).ready(function () {
 
     var pwaVersion = '1.0.1'; //must be identical to _manifest.json version. If not it will create update window loop
     var pwaCookie = true; // if set to false, the PWA prompt will appear even if the user selects "maybe later"
-    var pwaNoCache = false; // always keep the cache clear to serve the freshest possible content
-
 
     $('[data-pwa-version]').data('pwa-version', pwaVersion);
 
@@ -257,33 +255,24 @@ $(document).ready(function () {
     }
 
 
-    //Check if Online / Offline
-    function updateOnlineStatus(event) {
-        var condition = navigator.onLine ? "online" : "offline";
-        isOnline();
-        console.log('[OHIOH] Connection: Online');
-        $("a").off("click", returnFalse);
-    }
+    // //Check if Online / Offline
+    // function updateOnlineStatus(event) {
+    //     var condition = navigator.onLine ? "online" : "offline";
+    //     isOnline();
+    //     console.log('[OHIOH] Connection: Online');
+    //     $("a").off("click", returnFalse);
+    // }
 
-    function updateOfflineStatus(event) {
-        isOffline();
-        $("a").on("click", returnFalse);
-        console.log('[OHIOH] Connection: Offline');
-    }
-    // window.addEventListener('online', updateOnlineStatus);
-    // window.addEventListener('offline', updateOfflineStatus);
+    // function updateOfflineStatus(event) {
+    //     isOffline();
+    //     $("a").on("click", returnFalse);
+    //     console.log('[OHIOH] Connection: Offline');
+    // }
+    // // window.addEventListener('online', updateOnlineStatus);
+    // // window.addEventListener('offline', updateOfflineStatus);
 
 
-    if (pwaNoCache == true) {
-        caches.delete('PRECACHE').then(function () {});
-        localStorage.clear();
-        sessionStorage.clear()
-        caches.keys().then(cacheNames => {
-            cacheNames.forEach(cacheName => {
-                caches.delete(cacheName);
-            });
-        });
-    }
+
 
 
 });
