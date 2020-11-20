@@ -37,7 +37,7 @@
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    fetch('http://195.201.35.222:3000/login', {
+    fetch('https://app.ohioh.de:8443/login', {
         method: 'POST',
         headers: myHeaders,
         mode: 'cors',
@@ -109,7 +109,7 @@
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    fetch('http://195.201.35.222:3000/login', {
+    fetch('https://app.ohioh.de:8443/login', {
         method: 'POST',
         headers: myHeaders,
         mode: 'cors',
@@ -117,7 +117,10 @@
         body: VALUE
     })
     .then(data => data.json())
-    .then(data =>  { console.log(data) }) 
+    .then(data =>  { console.log(data)
+                   window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
+                    alert("Congrats you are successfully logged in");
+                   }) 
     .catch((err) => {
         console.error(err);
     })
