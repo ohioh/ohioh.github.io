@@ -1,8 +1,3 @@
-
-
-
-
-
   window.addEventListener('DOMContentLoaded', function() {
     const searchParams = new URL(location).searchParams;
     const inputs = Array.from(document.querySelectorAll('input[id]'));
