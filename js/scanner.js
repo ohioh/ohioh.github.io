@@ -259,7 +259,7 @@ function showNotification(title, message) {
 
 
   } catch(error)  {
-    log('Argh! ' + error);
+   // log('Argh! ' + error);
   }
 }
 
