@@ -8,7 +8,7 @@
           input.checked = searchParams.get(input.id);
         } else {
           input.value = searchParams.get(input.id);
-          input.blur();
+          input.blur();a
         }
       }
       if (input.type == 'checkbox') {
