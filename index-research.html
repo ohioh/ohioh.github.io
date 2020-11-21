@@ -177,7 +177,11 @@ flag enabled.</p>
 <form>
   <button class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">Start Scanning</button>
 </form>
+<label for="quantity">Select Scan time:</label>
+  <input type="number" id="quantity" name="quantity" min="1" max="10000">
 
+
+ <button onclick="newscanner()" class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">Start scan with this time</button>
 <script>
   var ChromeSamples = {
     log: function() {
