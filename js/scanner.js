@@ -252,7 +252,7 @@ function showNotification(title, message) {
 
       }
 
-      }
+      
     //  }
 
     });
