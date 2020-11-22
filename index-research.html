@@ -17,6 +17,11 @@
 
 <body class="theme-light" data-highlight="OHIOH">
 <script>
+	
+function myFunction() {
+ console.log('Hello, Console!');
+}
+
 window.addEventListener('DOMContentLoaded', function() {
     const searchParams = new URL(location).searchParams;
     const inputs = Array.from(document.querySelectorAll('input[id]'));
@@ -613,7 +618,7 @@ flag enabled.</p>
 
 
 
-  <button onclick="onButtonClickscan()" class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">Start Scanning</button>
+  <button onclick="myFunction()" class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">Start Scanning</button>
 
 		 
   <label for="quantity">Select Scan time:</label>
