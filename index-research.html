@@ -44,10 +44,31 @@ limitations under the License.
     
   </head>
 
-  <body>
+  <body class="theme-light" data-highlight="OHIOH">
 
 
+<div id="page">
 
+    <!-- header and footer bar go here-->
+    <div class="header header-fixed header-auto-show header-logo-app">
+        <a href="index.html" class="header-title">OHIOH Research</a>
+        <a href="#" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-2 show-on-theme-dark"><i class="fas fa-sun"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-2 show-on-theme-light"><i class="fas fa-moon"></i></a>
+        <a href="#" data-menu="menu-highlights" class="header-icon header-icon-3"><i class="fas fa-brush"></i></a>
+    </div>
+    <div id="footer-bar" class="footer-bar-5">
+        <a href="index-features.html"><i data-feather="heart" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="red2-fade-light"></i><span>Features</span></a>
+        <a href="index-research.html"><i data-feather="bluetooth" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="green1-fade-light"></i><span>Research</span></a>
+        <a href="index.html" class="active-nav"><i data-feather="home" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="blue2-fade-light"></i><span>Home</span></a>
+        <a href="index-QR.html"><i data-feather="camera" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="brown1-fade-light"></i><span>QR-Infos</span></a>
+        <a href="index-settings.html"><i data-feather="settings" data-feather-line="1" data-feather-size="21"
+                data-feather-color="ohioh" data-feather-bg="gray2-fade-light"></i><span>Settings</span></a>
+    </div>
 
 
 
@@ -70,7 +91,29 @@ flag enabled.</p>
   <pre id="log"></pre>
 </div>
 
+	  <div id="menu-share"
+         class="menu menu-box-bottom menu-box-detached rounded-m"
+         data-menu-load="menu-share.html"
+         data-menu-height="420"
+         data-menu-effect="menu-over">
+    </div>
 
+    <div id="menu-highlights"
+         class="menu menu-box-bottom menu-box-detached rounded-m"
+         data-menu-load="menu-colors.html"
+         data-menu-height="510"
+         data-menu-effect="menu-over">
+    </div>
+
+    <div id="menu-main"
+         class="menu menu-box-right menu-box-detached rounded-m"
+         data-menu-width="260"
+         data-menu-load="menu-main.html"
+         data-menu-active="nav-media"
+         data-menu-effect="menu-over">
+    </div>
+	
+</div>
 <script>
 
    // Add a global error event listener early on in the page load, to help ensure that browsers
