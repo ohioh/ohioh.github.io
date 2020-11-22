@@ -292,7 +292,7 @@ flag enabled.</p>
     log(' active: ' + scan.active);
     log(' keepRepeatedDevices: ' + scan.keepRepeatedDevices);
     log(' filters: ' + JSON.stringify(scan.filters));
-
+var devices = [];
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
 	    log('Advertisement received.');
       log('  Device Name: ' + event.device.name);
