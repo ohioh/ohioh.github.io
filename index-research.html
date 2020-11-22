@@ -294,7 +294,7 @@ flag enabled.</p>
     log(' filters: ' + JSON.stringify(scan.filters));
 
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
-
+ log('Advertisement received.');
         if ( event.device.name != null)
       {
 	       log('Advertisement received.');
