@@ -297,18 +297,19 @@ flag enabled.</p>
 
         if ( event.device.name != null)
       {
+	       log('Advertisement received.');
         function checkAdult(device) {
         //  log('||' + typeof device+'|'+ typeof event.uuids+"||");
             return device+" " == event.uuids+" ";
           }
           if(devices.find(checkAdult))
 {
-//log("hhhhhhhhhhhhh");
+log("hhhhhhhhhhhhh");
 }
       }
 else{
    devices.push(event.uuids);
-    if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
+    if(1)
         {
         
 
