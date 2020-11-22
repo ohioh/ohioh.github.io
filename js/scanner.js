@@ -342,12 +342,12 @@ var fruits = [];
           }
           if(devices.find(checkAdult))
 {
-//log("hhhhhhhhhhhhh");
+log("hhhhhhhhhhhhh");
 }
 else{
 
 devices.push(event.uuids);
-    if(event.uuids == '0000180f-0000-1000-8000-00805f9b34fb')
+    if(1)
         {
           Notification.requestPermission(result => {
   if (result === 'granted') {
