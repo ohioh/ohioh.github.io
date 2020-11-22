@@ -316,10 +316,11 @@ log("hhhhhhhhhhhhh");
 }
       
 else{
+	log("xxxxxxx");
    devices.push(event.uuids);
     if(1)
         {
-        
+        log("zzzzzzzz");
 
 
         
@@ -378,7 +379,7 @@ else{
     setTimeout(stopScan, 10000);
     function stopScan() {
       log('Stopping scan...');
-      scan.stop();
+    //  scan.stop();
       log('Stopped.  scan.active = ' + scan.active);
     }
   } catch(error)  {
