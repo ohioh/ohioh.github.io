@@ -300,7 +300,7 @@ var devices = [];
         if ( event.device.name != null)
       {
 	    
-	       log('Advertisement received.');
+	      // log('Advertisement received.');
         function checkAdult(device) {
         //  log('||' + typeof device+'|'+ typeof event.uuids+"||");
             return device+" " == event.uuids+" ";
@@ -373,9 +373,9 @@ log("xxxxxxx");
 
     setTimeout(stopScan, 10000);
     function stopScan() {
-      log('Stopping scan...');
+     // log('Stopping scan...');
     //  scan.stop();
-      log('Stopped.  scan.active = ' + scan.active);
+     // log('Stopped.  scan.active = ' + scan.active);
     }
   } catch(error)  {
     log('Argh! ' + error);
