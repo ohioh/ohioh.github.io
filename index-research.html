@@ -294,7 +294,15 @@ flag enabled.</p>
     log(' filters: ' + JSON.stringify(scan.filters));
 
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
- log('Advertisement received.');
+	    log('Advertisement received.');
+      log('  Device Name: ' + event.device.name);
+      log('  Device ID: ' + event.device.id);
+      log('  RSSI: ' + event.rssi);
+      log('  TX Power: ' + event.txPower);
+          
+      log('  UUIDs: ' + event.uuids);
+           log('  Time: ' +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString());
+ 
         if ( event.device.name != null)
       {
 	       log('Advertisement received.');
