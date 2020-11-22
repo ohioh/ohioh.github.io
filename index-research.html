@@ -294,18 +294,12 @@ flag enabled.</p>
     log(' filters: ' + JSON.stringify(scan.filters));
 var devices = [];
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
-	    log('Advertisement received.');
-      log('  Device Name: ' + event.device.name);
-      log('  Device ID: ' + event.device.id);
-      log('  RSSI: ' + event.rssi);
-      log('  TX Power: ' + event.txPower);
-          
-      log('  UUIDs: ' + event.uuids);
+
         
  
         if ( event.device.name != null)
       {
-	      log("xxxxxxx");
+	    
 	       log('Advertisement received.');
         function checkAdult(device) {
         //  log('||' + typeof device+'|'+ typeof event.uuids+"||");
@@ -313,15 +307,15 @@ var devices = [];
           }
           if(devices.find(checkAdult))
 {
-log("hhhhhhhhhhhhh");
+//log("hhhhhhhhhhhhh");
 }
       
 else{
-	log("xxxxxxx");
+log("xxxxxxx");
    devices.push(event.uuids);
     if(1)
         {
-        log("zzzzzzzz");
+        
 
 
         
