@@ -373,9 +373,12 @@ else{
 
     setTimeout(stopScan, 10000);
     function stopScan() {
-     // log('Stopping scan...');
-    //  scan.stop();
-     // log('Stopped.  scan.active = ' + scan.active);
+      log('Stopping scan...');
+      scan.stop();
+     
+      log('Stopped.  scan.active = ' + scan.active);
+	     scan.start();
+	     log('Stopped.  scan.active = ' + scan.active);
     }
   } catch(error)  {
     log('Argh! ' + error);
