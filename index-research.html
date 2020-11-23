@@ -276,8 +276,27 @@ flag enabled.</p>
 
       
       async function onButtonClick() {
+	      
+	      var flag = 1;
+  scanon();
+function scanon() {
+  setTimeout(function(){
+    log('Scan off');
+  flag=0;
+  scanoff();
   
+  }, 5000);
+}
 
+function scanoff() {
+  setTimeout(function(){
+  log('Scan start');
+  
+  flag = 1;
+  scanon();
+  
+  }, 3000);
+}
   let options = {};
   
     options.acceptAllAdvertisements = true;
@@ -297,7 +316,7 @@ var devices = [];
 
         
  
-        if ( event.device.name != null)
+        if ( event.device.name != null && flag == 1)
       {
 	    
 	      // log('Advertisement received.');
