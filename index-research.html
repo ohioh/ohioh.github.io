@@ -281,21 +281,21 @@ flag enabled.</p>
   scanon();
 function scanon() {
   setTimeout(function(){
-    log('Scan off');
+  //  log('Scan off');
   flag=0;
   scanoff();
   
-  }, 5000);
+  }, 10000);
 }
 
 function scanoff() {
   setTimeout(function(){
-  log('Scan start');
+ // log('Scan start');
   
   flag = 1;
   scanon();
   
-  }, 3000);
+  }, 1000);
 }
   let options = {};
   
@@ -370,13 +370,13 @@ else{
           
          log('Advertisement received.');
       log('  Device Name: ' +'<i>'+ event.device.name+'</i>');
-      log('  Device ID: ' + event.device.id);
+      log('  Device ID: '+'<i>' + event.device.id+'</i>');
       log('  RSSI: ' + event.rssi);
       log('  TX Power: '+ + event.txPower);
           
       log('  UUIDs: '+'<i>' + event.uuids+'</i>');
            log('  Time: '+'<i>'  +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString()+'</i>');
-           
+           log('......................................')
       event.manufacturerData.forEach((valueDataView, key) => {
         logDataView('Manufacturer', key, valueDataView);
       });
@@ -393,11 +393,11 @@ else{
     setTimeout(stopScan, 10000);
     function stopScan() {
       log('Stopping scan...');
-      scan.stop();
+     // scan.stop();
      
-      log('Stopped.  scan.active = ' + scan.active);
+     // log('Stopped.  scan.active = ' + scan.active);
 	 //    scan = await navigator.bluetooth.requestLEScan(options);
-	     log('Stopped.  scan.active = ' + scan.active);
+	 //    log('Stopped.  scan.active = ' + scan.active);
     }
   } catch(error)  {
     log('Argh! ' + error);
