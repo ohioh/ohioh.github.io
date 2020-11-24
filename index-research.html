@@ -246,7 +246,7 @@ flag enabled.</p>
         return typeof argument === 'string' ? argument : JSON.stringify(argument);
       }).join(' ');
 
-      document.querySelector('#log').textContent += line + '\n';
+      document.querySelector('#log').innerHTML += line + '\n';
     },
 
     clearLog: function() {
