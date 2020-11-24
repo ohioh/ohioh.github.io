@@ -45,7 +45,10 @@
         body: VALUE
     })
     .then(data => data.json())
-    .then(data =>  { console.log(data) }) 
+    .then(data =>  { console.log(data) 
+                   setCookie(fd.get('email'));
+                   window.location.href = "https://ohioh-app.de/index.html";
+                   }) 
     .catch((err) => {
         console.error(err);
     })
