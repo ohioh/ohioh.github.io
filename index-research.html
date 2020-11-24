@@ -369,13 +369,13 @@ else{
     })
           
          log('Advertisement received.');
-      log('  Device Name: ' + event.device.name);
+      log('  Device Name: ' +'<i>'+ event.device.name+'</i>');
       log('  Device ID: ' + event.device.id);
       log('  RSSI: ' + event.rssi);
-      log('  TX Power: ' + event.txPower);
+      log('  TX Power: '+ + event.txPower);
           
-      log('  UUIDs: ' + event.uuids);
-           log('  Time: ' +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString());
+      log('  UUIDs: '+'<i>' + event.uuids+'</i>');
+           log('  Time: '+'<i>'  +  new Date(new Date().getTime() + 4*60*60*1000).toLocaleTimeString()+'</i>');
            
       event.manufacturerData.forEach((valueDataView, key) => {
         logDataView('Manufacturer', key, valueDataView);
