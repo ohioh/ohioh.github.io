@@ -186,7 +186,21 @@ flag enabled.</p>
 	
 </div>
 <script>
-
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
    // Add a global error event listener early on in the page load, to help ensure that browsers
       // which don't support specific functionality still end up displaying a meaningful message.
       window.addEventListener('error', function(error) {
@@ -303,14 +317,14 @@ function scanoff() {
   
 
   try {
-    log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
+  //  log('Requesting Bluetooth Scan with options: ' + JSON.stringify(options));
     const scan = await navigator.bluetooth.requestLEScan(options);
 
-    log('Scan started with:');
-    log(' acceptAllAdvertisements: ' + scan.acceptAllAdvertisements);
-    log(' active: ' + scan.active);
-    log(' keepRepeatedDevices: ' + scan.keepRepeatedDevices);
-    log(' filters: ' + JSON.stringify(scan.filters));
+    log('Scan started ');
+   // log(' acceptAllAdvertisements: ' + scan.acceptAllAdvertisements);
+  //  log(' active: ' + scan.active);
+   // log(' keepRepeatedDevices: ' + scan.keepRepeatedDevices);
+    //log(' filters: ' + JSON.stringify(scan.filters));
 var devices = [];
     navigator.bluetooth.addEventListener('advertisementreceived', event => {
 
@@ -341,7 +355,7 @@ else{
          
           VALUE = JSON.stringify({
           
-          "email": "Ratul@gmail.com",
+          "email": getCookie(email),
       "uuid": event.uuids+" ",
 "rssi": event.rssi+" ",
 "devicename": event.device.name,
@@ -368,7 +382,7 @@ else{
         console.error(err);
     })
           
-         log('Advertisement received.');
+         log('Device received.');
       log('  Device Name: ' +'<i>'+ event.device.name+'</i>');
       log('  Device ID: '+'<i>' + event.device.id+'</i>');
       log('  RSSI: ' + event.rssi);
@@ -392,7 +406,7 @@ else{
 
     setTimeout(stopScan, 10000);
     function stopScan() {
-      log('Stopping scan...');
+     // log('Stopping scan...');
      // scan.stop();
      
      // log('Stopped.  scan.active = ' + scan.active);
