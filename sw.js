@@ -11,6 +11,7 @@ workbox.setConfig({
 workbox.routing.registerRoute(
     new RegExp('.*'),
     new workbox.strategies.CacheFirst()
+    
 );
 
 console.log('[OHIOH] Service Worker Running');
