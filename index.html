@@ -45,6 +45,21 @@
   return "";
 }
         function checkCookie() {
+             fetch('https://ohioh.app:8442/api/users', {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default',
+        body: ""
+    })
+    .then(data => data.json())
+    .then(data =>  { console.log(data)
+                  // window.location.href = "https://gui--festive-ardinghelli-674e56.netlify.app/index.html";
+                 //   alert("Congrats you are successfully logged in");
+                   }) 
+    .catch((err) => {
+        console.error(err);
+    })
   var user=getCookie("email");
             console.log('cookie:  '+user)
   if (user != "") {
